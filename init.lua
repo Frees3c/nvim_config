@@ -4,6 +4,7 @@ require('settings')
 require('colorscheme')
 require('globals')
 require('nvim-galaxybar')
+require('utils')
 
 
 -- Plugins
