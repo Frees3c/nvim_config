@@ -6,7 +6,6 @@ local key_mapper = function(mode, key, result)
     {noremap = true, silent = true}
   )
 end
-
 -- Map leader to space
 vim.g.mapleader = ' '
 
@@ -18,6 +17,7 @@ key_mapper('n', '<leader>fl', ':Telescope live_grep<CR>')
 key_mapper('n', '<leader>fb', ':Telescope buffers<CR>')
 key_mapper('n', '<leader>fh', ':Telescope help_tags<CR>')
 key_mapper('n', '<leader>fg', ':Telescope git_files<CR>')
+key_mapper('n','<leader>fc',  ':Telescope colorscheme<cr>')
 
 -- Clear highlights
 key_mapper('n', '<leader>h', ':noh<CR>')
@@ -69,5 +69,3 @@ inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
     ]])
 
--- disabled in visual mode
-vim.cmd 'au TextYankPost * lua vim.highlight.on_yank {on_visual = false}'
