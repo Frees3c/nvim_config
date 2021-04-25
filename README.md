@@ -14,17 +14,24 @@ git clone https://github.com/wbthomason/packer.nvim\
  ~/.local/share/nvim/site/pack/packer/start/packer.nvim
 ```
 
+## Lsp
+Install a supported language server, tab completion is supported:
+		:LspInstall <Language server>
+
+```
+:LspInstall python lua diagnostics bash json html yaml vim css php ruby
+
+```
+
 ## Formatters and Linters
 
 **Python**
-
 ```
 pip3 install --user flake8
 
 ```
 
 **Lua**
-
 ```
 luarocks install --server=https://luarocks.org/dev luaformatter
 
@@ -35,11 +42,9 @@ Yaml, Json, Javascript, HTML, CSS
 npm install -g prettier
 
 ```
-
 Markdown
-
 ```
-padoc
+pandoc
 
 ```
 

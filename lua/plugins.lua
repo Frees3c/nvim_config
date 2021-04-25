@@ -53,7 +53,7 @@ return require('packer').startup(function(use)
   -- Git
   -- use 'TimUntersberger/neogit'
   use {'lewis6991/gitsigns.nvim', requires = {'nvim-lua/plenary.nvim'}}
-
+  use 'kdheepak/lazygit.nvim'
   -- Ranger
   use 'kevinhwang91/rnvimr'
 
