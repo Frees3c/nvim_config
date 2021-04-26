@@ -3,7 +3,7 @@ require('keymappings')
 require('settings')
 require('colorscheme')
 require('globals')
-require('nvim-galaxybar')
+require('nvim-galaxyline')
 require('utils')
 
 
