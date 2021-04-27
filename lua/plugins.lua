@@ -68,6 +68,12 @@ return require('packer').startup(function(use)
 
 
   -- General
+  use {
+    "numtostr/FTerm.nvim",
+    config = function()
+        require("FTerm").setup()
+    end
+}
   use "windwp/nvim-autopairs"
   use 'glepnir/galaxyline.nvim'
   use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}

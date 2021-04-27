@@ -16,6 +16,7 @@ require('nvim-telescope')
 require('nvim-comment')
 require('nvim-colorizer')
 require('nvim-gitsigns')
+require('nvim-FTerm')
 
 -- LSP
 require('lsp')
