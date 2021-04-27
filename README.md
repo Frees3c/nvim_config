@@ -1,4 +1,7 @@
-## WiP: TODO// LOTS!
+>  WiP:
+>
+>
+> TODO// fix auto commands, finish setting up auto formatting, fix indenting, list key mappings.
 
 # My config for Neovim init.lua
 
