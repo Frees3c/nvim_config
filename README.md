@@ -25,13 +25,18 @@ Install a supported language server, tab completion is supported:
 :LspInstall python lua diagnostics bash json html yaml vim css php ruby
 
 ```
+## Install efm-langserver
+```
+go get github.com/mattn/efm-langserver
+```
 
 ## Formatters and Linters
 
 **Python**
 ```
 pip3 install --user flake8
-
+pip3 install --user yapf
+pip3 install --user autopep8
 ```
 
 **Lua**
