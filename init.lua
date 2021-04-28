@@ -5,8 +5,9 @@ require('colorscheme')
 require('globals')
 require('nvim-galaxyline')
 require('utils')
+require('autocommands')
 
-
+require('nvim-formatter')
 -- Plugins
 require('nvim-compe')
 require('autopairs')

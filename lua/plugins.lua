@@ -14,6 +14,7 @@ return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim'}
 
   -- Quality of life improvements
+  use 'mhartington/formatter.nvim'
   use 'norcalli/nvim_utils'
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'
