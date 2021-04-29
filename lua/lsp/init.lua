@@ -27,7 +27,7 @@ vim.lsp.protocol.CompletionItemKind = {
     " [value]",
     " [enum]",
     " [key]",
-    "﬌ [Vsnip]",
+    " [Snippet]",
     "﬌ [snippet]",
     " [color]",
     " [file]",
@@ -187,6 +187,14 @@ lspconfig.bashls.setup {on_attach = on_attach}
 -- https://github.com/rcjsuen/dockerfile-language-server-nodejs
 lspconfig.dockerls.setup {on_attach = on_attach}
 
+-- https://solargraph.org/
+lspconfig.solargraph.setup {
+    root_dir = function()
+        return vim.loop.cwd()
+    end,
+    on_attach = on_attach
+}
+
 -- https://github.com/hashicorp/terraform-ls
 lspconfig.terraformls.setup {
     on_attach = on_attach,
@@ -209,6 +217,7 @@ local terraform = require "efm/terraform"
 local misspell = require "efm/misspell"
 local pandoc = require "efm/pandoc"
 local markdownlint = require "efm/markdownlint"
+-- local rufo = require "efm/rufo"
 -- https://github.com/mattn/efm-langserver
 lspconfig.efm.setup {
     on_attach = on_attach,

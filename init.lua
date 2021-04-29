@@ -1,4 +1,8 @@
-vim.g.python3_host_prog = "/usr/bin/python"
+if vim.fn.has("mac") == 1 then
+    vim.g.python3_host_prog = "/usr/local/bin/python3"
+else
+    vim.g.python3_host_prog = "/usr/bin/python"
+end
 
 require("utils")
 require("settings")
@@ -24,6 +28,7 @@ require("nvim-nvimtree")
 
 -- LSP
 require("lsp.lua-lsp")
+-- require("lsp.ruby-ls")
 -- require('lsp.python-ls')
 -- require('lsp.bash-ls')
 -- require('lsp.html-ls')
