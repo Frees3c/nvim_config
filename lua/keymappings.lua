@@ -42,35 +42,33 @@ key_mapper('n', '<leader>ev', ':e ~/.config/nvim/init.lua')
 key_mapper('n', '<leader>sv', ':luafile ~/.config/nvim/init.lua')
 
 -- Move line up or down
-key_mapper('n', '<C-k>', ':m-2<cr>')
-key_mapper('n', '<C-j>', ':m+<cr>')
+key_mapper('n', '<C-k>',      ':m-2<cr>')
+key_mapper('n', '<C-j>',      ':m+<cr>')
 
 -- Clear highlights
-key_mapper('n', '<leader>h',    ':noh<CR>')
-
--- jk to escape
-key_mapper('i', 'jk',           '<Esc>')
+key_mapper('n', '<leader>h',  ':noh<CR>')
 
 -- insert new line above without enerting insert mode.
-key_mapper('n', '<leader>o', 'moO<ESC> ')
+key_mapper('n', '<leader>o',   'moO<ESC> ')
 
 -- Better indentaion (tabbing)
-key_mapper('v', '>', '>gv')
-key_mapper('v', '<', '<gv')
+key_mapper('v', '>',           '>gv')
+key_mapper('v', '<',           '<gv')
 
 -- Copy to Clipboard
-key_mapper('n', '<leader>y',  '\"+y')
-key_mapper('n', '<leader>Y',  '\"+yg_')
+key_mapper('n', '<leader>y',   '\"+y')
+key_mapper('n', '<leader>Y',   '\"+yg_')
 
 -- Move selected line / block of text in visual mode
-key_mapper('x', 'K', ':move \'<-2<CR>gv-gv')
-key_mapper('x', 'J', ':move \'>+1<CR>gv-gv')
+key_mapper('x', 'K',           ':move \'<-2<CR>gv-gv')
+key_mapper('x', 'J',           ':move \'>+1<CR>gv-gv')
 
 -- jk as Escape key
-key_mapper('i', 'kj', '<Esc>')
-key_mapper('i', 'jk', '<Esc>')
+key_mapper('i', 'kj',          '<Esc>')
+key_mapper('i', 'jk',          '<Esc>')
 
-
+-- reload luafile
+key_mapper('n', '<leader>lf',  ':luafile %<CR>')
 
 --*************************************************************************************
 --
@@ -84,6 +82,9 @@ key_mapper('n', '<leader>lg',  ':LazyGit<CR>')
 -- Nvim Tree Toggle
 key_mapper('n', '<leader>e',   ':NvimTreeToggle<CR>')
 
+-- Toggle Ranger
+key_mapper('n', '<leader>-',    ':RnvimrToggle<CR>')
+
 -- Telescope
 key_mapper('n', '<leader>f',   ':Telescope find_files<CR>')
 key_mapper('n', '<leader>fl',  ':Telescope live_grep<CR>')
@@ -92,8 +93,7 @@ key_mapper('n', '<leader>fh',  ':Telescope help_tags<CR>')
 key_mapper('n', '<leader>fg',  ':Telescope git_files<CR>')
 key_mapper('n', '<leader>fc',  ':Telescope colorscheme<cr>')
 
--- key_mapper('i', '<expr><TAB>', 'pumvisible() ? \"\\<TAB>\"')
-
+-- lspsaga
 key_mapper("n", 'gh',           ':lua require(\'lspsaga.hover\').render_hover_doc()<CR>')
 
 -- Toggle Markdown Preview

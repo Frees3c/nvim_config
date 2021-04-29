@@ -43,7 +43,7 @@ return require('packer').startup(function(use)
   use 'nvim-lua/telescope.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
-  use 'nvim-telescope/telescope-media-files.nvim'
+  -- use 'nvim-telescope/telescope-media-files.nvim'
 
   -- Coloring
   use 'norcalli/nvim-colorizer.lua'
