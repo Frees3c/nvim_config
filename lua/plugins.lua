@@ -1,3 +1,13 @@
+--###################################################################################
+--		   ____   __               _
+--		  / __ \ / /__  __ ____ _ (_)____   _____
+--		 / /_/ // // / / // __ `// // __ \ / ___/
+--		/ ____// // /_/ // /_/ // // / / /(__  )
+--	   /_/    /_/ \__,_/ \__, //_//_/ /_//____/
+--						/____/
+--
+-- ###################################################################################
+
 local execute = vim.api.nvim_command
 local fn = vim.fn
 
@@ -43,7 +53,7 @@ return require('packer').startup(function(use)
   use 'nvim-lua/telescope.nvim'
   use 'nvim-lua/popup.nvim'
   use 'nvim-lua/plenary.nvim'
-  -- use 'nvim-telescope/telescope-media-files.nvim'
+  use 'nvim-telescope/telescope-media-files.nvim'
 
   -- Coloring
   use 'norcalli/nvim-colorizer.lua'
@@ -51,6 +61,7 @@ return require('packer').startup(function(use)
   use 'sickill/vim-monokai'
   use 'tomasr/molokai'
   use 'DilanGMB/nightbuddy'
+  use 'folke/tokyonight.nvim'
 
   -- Git
   -- use 'TimUntersberger/neogit'
@@ -71,6 +82,7 @@ return require('packer').startup(function(use)
 
   -- General
   -- use "numtostr/FTerm.nvim"
+  use 'glepnir/dashboard-nvim'
   use "windwp/nvim-autopairs"
   use 'glepnir/galaxyline.nvim'
   use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}

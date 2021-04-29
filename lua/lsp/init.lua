@@ -1,11 +1,3 @@
--- vim.fn.sign_define("LspDiagnosticsSignError",
---                    {texthl = "LspDiagnosticsSignError", text = "", numhl = "LspDiagnosticsSignError"})
--- vim.fn.sign_define("LspDiagnosticsSignWarning",
---                    {texthl = "LspDiagnosticsSignWarning", text = "", numhl = "LspDiagnosticsSignWarning"})
--- vim.fn.sign_define("LspDiagnosticsSignInformation",
---                    {texthl = "LspDiagnosticsSignInformation", text = "", numhl = "LspDiagnosticsSignInformation"})
--- vim.fn.sign_define("LspDiagnosticsSignHint",
---                    {texthl = "LspDiagnosticsSignHint", text = "", numhl = "LspDiagnosticsSignHint"})
 require "lsp.handlers"
 require "lsp.formatting"
 local lspconfig = require "lspconfig"
@@ -217,7 +209,6 @@ local terraform = require "efm/terraform"
 local misspell = require "efm/misspell"
 local pandoc = require "efm/pandoc"
 local markdownlint = require "efm/markdownlint"
--- local rufo = require "efm/rufo"
 -- https://github.com/mattn/efm-langserver
 lspconfig.efm.setup {
     on_attach = on_attach,

@@ -8,6 +8,7 @@
 --
 -- ###################################################################################
 
+
 local key_mapper = function(mode, key, result)
   vim.api.nvim_set_keymap(
     mode,
@@ -95,6 +96,16 @@ key_mapper('n', '<leader>fc',  ':Telescope colorscheme<cr>')
 
 -- lspsaga
 key_mapper("n", 'gh',           ':lua require(\'lspsaga.hover\').render_hover_doc()<CR>')
+key_mapper('n', 'ca',           ':Lspsaga code_action<CR>')
+key_mapper('n', 'K',            ':Lspsaga hover_doc<CR>')
+-- key_mapper('n', <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>')
+key_mapper('n',  '<C-p>',      ':Lspsaga diagnostic_jump_prev<CR>')
+key_mapper('n',  '<C-n>',      ':Lspsaga diagnostic_jump_next<CR>')
+-- scroll down hover doc or scroll in definition preview
+key_mapper('n',  '<C-f>', '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>')
+-- scroll up hover doc
+key_mapper('n',  '<C-b>', '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>')
+vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()')
 
 -- Toggle Markdown Preview
 key_mapper('n', '<leader>md',   ':MarkdownPreviewToggle')
