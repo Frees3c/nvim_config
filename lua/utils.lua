@@ -1,189 +1,143 @@
-local nv_utils = {}
+local M = {}
 
-function nv_utils.define_augroups(definitions) -- {{{1
-    -- Create autocommand groups based on the passed definitions
-    --
-    -- The key will be the name of the group, and each definition
-    -- within the group should have:
-    --    1. Trigger
-    --    2. Pattern
-    --    3. Text
-    -- just like how they would normally be defined from Vim itself
-    for group_name, definition in pairs(definitions) do
-        vim.cmd('augroup ' .. group_name)
-        vim.cmd('autocmd!')
-
-        for _, def in pairs(definition) do
-            local command = table.concat(vim.tbl_flatten {'autocmd', def}, ' ')
-            vim.cmd(command)
-        end
-
-        vim.cmd('augroup END')
+M.merge = function(t1, t2)
+    for k, v in pairs(t2) do
+        t1[k] = v
     end
+    return t1
 end
 
--- lsp
-
-function nv_utils.add_to_workspace_folder()
-    vim.lsp.buf.add_workspace_folder()
-end
-
-function nv_utils.clear_references()
-    vim.lsp.buf.clear_references()
-end
-
-function nv_utils.code_action()
-    vim.lsp.buf.code_action()
-end
-
-function nv_utils.declaration()
-    vim.lsp.buf.declaration()
-    vim.lsp.buf.clear_references()
-end
-
-function nv_utils.definition()
-    vim.lsp.buf.definition()
-    vim.lsp.buf.clear_references()
-end
-
-function nv_utils.document_highlight()
-    vim.lsp.buf.document_highlight()
-end
-
-function nv_utils.document_symbol()
-    vim.lsp.buf.document_symbol()
-end
-
-function nv_utils.formatting()
-    vim.lsp.buf.formatting()
-end
-
-function nv_utils.formatting_sync()
-    vim.lsp.buf.formatting_sync()
-end
-
-function nv_utils.hover()
-    vim.lsp.buf.hover()
-end
-
-function nv_utils.implementation()
-    vim.lsp.buf.implementation()
-end
-
-function nv_utils.incoming_calls()
-    vim.lsp.buf.incoming_calls()
-end
-
-function nv_utils.list_workspace_folders()
-    vim.lsp.buf.list_workspace_folders()
-end
-
-function nv_utils.outgoing_calls()
-    vim.lsp.buf.outgoing_calls()
-end
-
-function nv_utils.range_code_action()
-    vim.lsp.buf.range_code_action()
-end
-
-function nv_utils.range_formatting()
-    vim.lsp.buf.range_formatting()
-end
-
-function nv_utils.references()
-    vim.lsp.buf.references()
-    vim.lsp.buf.clear_references()
-end
-
-function nv_utils.remove_workspace_folder()
-    vim.lsp.buf.remove_workspace_folder()
-end
-
-function nv_utils.rename()
-    vim.lsp.buf.rename()
-end
-
-function nv_utils.signature_help()
-    vim.lsp.buf.signature_help()
-end
-
-function nv_utils.type_definition()
-    vim.lsp.buf.type_definition()
-end
-
-function nv_utils.workspace_symbol()
-    vim.lsp.buf.workspace_symbol()
-end
-
--- diagnostic
-
-function nv_utils.get_all()
-    vim.lsp.diagnostic.get_all()
-end
-
-function nv_utils.get_next()
-    vim.lsp.diagnostic.get_next()
-end
-
-function nv_utils.get_prev()
-    vim.lsp.diagnostic.get_prev()
-end
-
-function nv_utils.goto_next()
-    vim.lsp.diagnostic.goto_next()
-end
-
-function nv_utils.goto_prev()
-    vim.lsp.diagnostic.goto_prev()
-end
-
-function nv_utils.show_line_diagnostics()
-    vim.lsp.diagnostic.show_line_diagnostics()
-end
-
--- git signs
-
-function nv_utils.next_hunk()
-    require('gitsigns').next_hunk()
-end
-
-function nv_utils.prev_hunk()
-    require('gitsigns').prev_hunk()
-end
-
-function nv_utils.stage_hunk()
-    require('gitsigns').stage_hunk()
-end
-
-function nv_utils.undo_stage_hunk()
-    require('gitsigns').undo_stage_hunk()
-end
-
-function nv_utils.reset_hunk()
-    require('gitsigns').reset_hunk()
-end
-
-function nv_utils.reset_buffer()
-    require('gitsigns').reset_buffer()
-end
-
-function nv_utils.preview_hunk()
-    require('gitsigns').preview_hunk()
-end
-
-function nv_utils.blame_line()
-    require('gitsigns').blame_line()
-end
-
--- misc
-function nv_utils.file_exists(name)
-    local f = io.open(name, "r")
-    if f ~= nil then
-        io.close(f)
-        return true
+M._if = function(bool, a, b)
+    if bool then
+        return a
     else
-        return false
+        return b
     end
 end
 
-return nv_utils
+M.map = function(modes, key, result, options)
+    options =
+        M.merge(
+        {
+            noremap = true,
+            silent = false,
+            expr = false,
+            nowait = false
+        },
+        options or {}
+    )
+    local buffer = options.buffer
+    options.buffer = nil
+
+    if type(modes) ~= "table" then
+        modes = {modes}
+    end
+
+    for i = 1, #modes do
+        if buffer then
+            vim.api.nvim_buf_set_keymap(0, modes[i], key, result, options)
+        else
+            vim.api.nvim_set_keymap(modes[i], key, result, options)
+        end
+    end
+end
+
+function _G.copy(obj, seen)
+    if type(obj) ~= "table" then
+        return obj
+    end
+    if seen and seen[obj] then
+        return seen[obj]
+    end
+    local s = seen or {}
+    local res = {}
+    s[obj] = res
+    for k, v in next, obj do
+        res[copy(k, s)] = copy(v, s)
+    end
+    return setmetatable(res, getmetatable(obj))
+end
+
+function _G.P(...)
+    local objects = vim.tbl_map(vim.inspect, {...})
+    print(unpack(objects))
+end
+
+function _G.R(package)
+    package.loaded[package] = nil
+    return require(package)
+end
+
+function _G.T()
+    print(require("nvim-treesitter.ts_utils").get_node_at_cursor():type())
+end
+
+M.ansi_codes = {
+    _clear = "[0m",
+    _red = "[0;31m",
+    _green = "[0;32m",
+    _yellow = "[0;33m",
+    _blue = "[0;34m",
+    _magenta = "[0;35m",
+    _cyan = "[0;36m",
+    _grey = "[0;90m",
+    _dark_grey = "[0;97m",
+    _white = "[0;98m",
+    red = function(self, string)
+        return self._red .. string .. self._clear
+    end,
+    green = function(self, string)
+        return self._green .. string .. self._clear
+    end,
+    yellow = function(self, string)
+        return self._yellow .. string .. self._clear
+    end,
+    blue = function(self, string)
+        return self._blue .. string .. self._clear
+    end,
+    magent = function(self, string)
+        return self._magenta .. string .. self._clear
+    end,
+    cyan = function(self, string)
+        return self._cyan .. string .. self._clear
+    end,
+    grey = function(self, string)
+        return self._grey .. string .. self._clear
+    end,
+    dark_grey = function(self, string)
+        return self._dark_grey .. string .. self._clear
+    end,
+    white = function(self, string)
+        return self._white .. string .. self._clear
+    end
+}
+
+M.shorten_string = function(string, length)
+    if #string < length then
+        return string
+    end
+    local start = string:sub(1, (length / 2) - 2)
+    local _end = string:sub(#string - (length / 2) + 1, #string)
+    return start .. "..." .. _end
+end
+
+M.wrap_lines = function(input, width)
+    local output = {}
+    for _, line in ipairs(input) do
+        line = line:gsub("\r", "")
+        while #line > width + 2 do
+            local trimmed_line = string.sub(line, 1, width)
+            local index = trimmed_line:reverse():find(" ")
+            if index == nil or index > #trimmed_line / 2 then
+                break
+            end
+            table.insert(output, string.sub(line, 1, width - index))
+            line = vim.o.showbreak .. string.sub(line, width - index + 2, #line)
+        end
+        table.insert(output, line)
+    end
+
+    return output
+end
+
+return M

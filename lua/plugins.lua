@@ -14,7 +14,6 @@ return require('packer').startup(function(use)
   use {'wbthomason/packer.nvim'}
 
   -- Quality of life improvements
-  use 'mhartington/formatter.nvim'
   use 'norcalli/nvim_utils'
   use 'neovim/nvim-lspconfig'
   use 'kabouzeid/nvim-lspinstall'
@@ -22,6 +21,8 @@ return require('packer').startup(function(use)
   use 'kyazdani42/nvim-web-devicons'
   use 'glepnir/lspsaga.nvim'
   use 'terrortylor/nvim-comment'
+  use "jose-elias-alvarez/nvim-lsp-ts-utils"
+
 
   -- Auto completion
   use 'hrsh7th/vim-vsnip'
@@ -69,7 +70,7 @@ return require('packer').startup(function(use)
 
 
   -- General
-  use "numtostr/FTerm.nvim"
+  -- use "numtostr/FTerm.nvim"
   use "windwp/nvim-autopairs"
   use 'glepnir/galaxyline.nvim'
   use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install'}

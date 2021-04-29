@@ -14,23 +14,36 @@ require'compe'.setup {
     max_menu_width = 100,
     documentation = true,
 
-    source = {
-        path = {kind = "  "},
-        buffer = {kind = "  "},
-        calc = {kind = "  "},
-        vsnip = {kind = "  "},
-        nvim_lsp = {kind = "  "},
-        -- nvim_lua = {kind = "  "},
-		nvim_lua = false,
-        spell = {kind = "  "},
-        tags = false,
-        vim_dadbod_completion = true,
-        -- snippets_nvim = {kind = "  "},
-        -- ultisnips = {kind = "  "},
-        -- treesitter = {kind = "  "},
-        emoji = {kind = " ﲃ ", filetypes={"markdown", "text"}}
-        -- for emoji press : (idk if that in compe tho)
-    }
+	source = {
+                        path = true,
+                        buffer = true,
+                        nvim_lsp = true,
+                        nvim_lua = true,
+						vsnip = true,
+                        -- ultisnips = true,
+                        calc = true,
+                        tmux = true,
+                        emoji = true,
+                        treesitter = true
+                    }
+
+		--     source = {
+		--         path = {kind = "  "},
+		--         buffer = {kind = "  "},
+		--         calc = {kind = "  "},
+		--         vsnip = {kind = "  "},
+		--         nvim_lsp = {kind = "  "},
+		--         -- nvim_lua = {kind = "  "},
+		-- nvim_lua = false,
+		--         spell = {kind = "  "},
+		--         tags = false,
+		--         vim_dadbod_completion = true,
+		--         -- snippets_nvim = {kind = "  "},
+		--         -- ultisnips = {kind = "  "},
+		--         -- treesitter = {kind = "  "},
+		--         emoji = {kind = " ﲃ ", filetypes={"markdown", "text"}}
+		--         -- for emoji press : (idk if that in compe tho)
+		--     }
 }
 
 -- 

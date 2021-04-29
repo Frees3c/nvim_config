@@ -1,13 +1,32 @@
-require'nvim-treesitter.configs'.setup {
-    ensure_installed = "maintained", -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+require "nvim-treesitter.configs".setup {
+    ensure_installed = "all",
     highlight = {
-        enable = true -- false will disable the whole extension
+        enable = true,
+        language_tree = true
     },
-	indent = {
-		enable = true
-	},
-    autotag = {enable = true},
-	playground = {enabled = true},
-	rainbow = {enable = true},
+    indent = {
+        enable = false
+    },
+    refactor = {
+        highlight_definitions = {
+            enable = true
+        }
+    },
+    autotag = {
+        enable = true
+    },
+    context_commentstring = {
+        enable = true
+    },
+    textobjects = {
+        select = {
+            enable = true,
+            keymaps = {
+                ["af"] = "@function.outer",
+                ["if"] = "@function.inner",
+                ["ac"] = "@class.outer",
+                ["ic"] = "@class.inner"
+            }
+        }
+    }
 }
-
