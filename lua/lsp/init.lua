@@ -226,7 +226,7 @@ lspconfig.efm.setup {
         "markdown"
     },
     settings = {
-        rootMarkers = {".git/"},
+        -- rootMarkers = {".git/"},
         languages = {
             ["="] = {misspell},
             vim = {vint},
