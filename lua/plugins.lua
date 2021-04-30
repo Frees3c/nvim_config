@@ -82,6 +82,7 @@ return require('packer').startup(function(use)
 
   -- General
   -- use "numtostr/FTerm.nvim"
+  use "folke/which-key.nvim"
   use 'glepnir/dashboard-nvim'
   use "windwp/nvim-autopairs"
   use 'glepnir/galaxyline.nvim'

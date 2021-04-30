@@ -1,5 +1,6 @@
 require('telescope').load_extension('dap')
 require('dbg.python')
+require('dbg.ruby')
 
 local key_mapper = function(mode, key, result)
   vim.api.nvim_set_keymap(
