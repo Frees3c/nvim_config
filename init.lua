@@ -14,7 +14,7 @@ require("colorscheme")
 require("nvim-galaxyline")
 
 -- Plugins
-require("dpg")
+require("dbg")
 require("nvim-dashboard")
 require("autocmds")
 require("nvim-compe")
