@@ -1,10 +1,10 @@
 vim.g.dashboard_custom_header = {
-'███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗',
-'████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║',
-'██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║',
-'██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║',
-'██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║',
-'╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝',
+    "███╗   ██╗███████╗ ██████╗ ██╗   ██╗██╗███╗   ███╗",
+    "████╗  ██║██╔════╝██╔═══██╗██║   ██║██║████╗ ████║",
+    "██╔██╗ ██║█████╗  ██║   ██║██║   ██║██║██╔████╔██║",
+    "██║╚██╗██║██╔══╝  ██║   ██║╚██╗ ██╔╝██║██║╚██╔╝██║",
+    "██║ ╚████║███████╗╚██████╔╝ ╚████╔╝ ██║██║ ╚═╝ ██║",
+    "╚═╝  ╚═══╝╚══════╝ ╚═════╝   ╚═══╝  ╚═╝╚═╝     ╚═╝"
 }
 -- vim.g.dashboard_custom_header = {
 --
@@ -40,13 +40,13 @@ vim.g.dashboard_custom_header = {
 --  '                                                                                                                   ',
 -- }
 
-vim.g.dashboard_default_executive = 'telescope'
+vim.g.dashboard_default_executive = "telescope"
 
 vim.g.dashboard_custom_section = {
-    a = {description = {'  Find File          '}, command = 'Telescope find_files'},
-    b = {description = {'  Recently Used Files'}, command = 'Telescope oldfiles'},
-    d = {description = {'  Find Word          '}, command = 'Telescope live_grep'},
-    e = {description = {'  Settings           '}, command = ':e ~/.config/nvim/lua/settings.lua'}
-    -- e = {description = {'  Marks              '}, command = 'Telescope marks'}
+    a = {description = {"  Find File          "}, command = "Telescope find_files"},
+    b = {description = {"  Recently Used Files"}, command = "Telescope oldfiles"},
+    c = {description = {"  New File           "}, command = ":DashboardNewFile"},
+    d = {description = {"  Find Word          "}, command = "Telescope live_grep"},
+    e = {description = {"  Settings           "}, command = ":e ~/.config/nvim/lua/settings.lua"},
+    f = {description = {"  Marks              "}, command = "Telescope marks"}
 }
-

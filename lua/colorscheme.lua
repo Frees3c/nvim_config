@@ -7,6 +7,6 @@
 --
 -- ###################################################################################
 
-vim.g.nb_style = "twilight"
-require('colorbuddy').colorscheme('nightbuddy')
-
+vim.g.nb_style = "midnight"
+require("colorbuddy").colorscheme("nightbuddy")
+-- vim.cmd[[colorscheme space-nvim]]

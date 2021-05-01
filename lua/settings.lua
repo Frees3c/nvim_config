@@ -60,4 +60,3 @@ vim.g.markdown_fenced_languages = {
     "gql=graphql",
     "graphql"
 }
-

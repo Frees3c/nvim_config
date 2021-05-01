@@ -214,7 +214,7 @@ lspconfig.efm.setup {
     on_attach = on_attach,
     init_options = {documentFormatting = true},
     filetypes = {
-        -- "lua",
+        "lua",
         "python",
         "javascriptreact",
         "javascript",

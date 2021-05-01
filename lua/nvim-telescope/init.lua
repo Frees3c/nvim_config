@@ -1,11 +1,11 @@
-local actions = require('telescope.actions')
+local actions = require("telescope.actions")
 -- Global remapping
 ------------------------------
 -- '--color=never',
-require('telescope').load_extension('media_files')
-require('telescope').setup {
+require("telescope").load_extension("media_files")
+require("telescope").setup {
     defaults = {
-        vimgrep_arguments = {'rg', '--no-heading', '--with-filename', '--line-number', '--column', '--smart-case'},
+        vimgrep_arguments = {"rg", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case"},
         prompt_position = "bottom",
         prompt_prefix = " ",
         selection_caret = " ",
@@ -15,9 +15,9 @@ require('telescope').setup {
         sorting_strategy = "descending",
         layout_strategy = "horizontal",
         layout_defaults = {horizontal = {mirror = false}, vertical = {mirror = false}},
-        file_sorter = require'telescope.sorters'.get_fuzzy_file,
-        file_ignore_patterns = {},
-        generic_sorter = require'telescope.sorters'.get_generic_fuzzy_sorter,
+        file_sorter = require "telescope.sorters".get_fuzzy_file,
+        file_ignore_patterns = {"go/", "node_modules/"},
+        generic_sorter = require "telescope.sorters".get_generic_fuzzy_sorter,
         shorten_path = true,
         winblend = 0,
         width = 0.75,
@@ -25,16 +25,15 @@ require('telescope').setup {
         results_height = 1,
         results_width = 0.8,
         border = {},
-        borderchars = {'─', '│', '─', '│', '╭', '╮', '╯', '╰'},
+        borderchars = {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
         color_devicons = true,
         use_less = true,
-        set_env = {['COLORTERM'] = 'truecolor'}, -- default = nil,
-        file_previewer = require'telescope.previewers'.vim_buffer_cat.new,
-        grep_previewer = require'telescope.previewers'.vim_buffer_vimgrep.new,
-        qflist_previewer = require'telescope.previewers'.vim_buffer_qflist.new,
-
+        set_env = {["COLORTERM"] = "truecolor"}, -- default = nil,
+        file_previewer = require "telescope.previewers".vim_buffer_cat.new,
+        grep_previewer = require "telescope.previewers".vim_buffer_vimgrep.new,
+        qflist_previewer = require "telescope.previewers".vim_buffer_qflist.new,
         -- Developer configurations: Not meant for general override
-        buffer_previewer_maker = require'telescope.previewers'.buffer_previewer_maker,
+        buffer_previewer_maker = require "telescope.previewers".buffer_previewer_maker,
         mappings = {
             i = {
                 ["<C-j>"] = actions.move_selection_next,
@@ -43,7 +42,6 @@ require('telescope').setup {
                 -- So, to not map "<C-n>", just put
                 -- ["<c-x>"] = false,
                 ["<esc>"] = actions.close,
-
                 -- Otherwise, just set the mapping to the function that you want it to be.
                 -- ["<C-i>"] = actions.select_horizontal,
 
@@ -60,7 +58,7 @@ require('telescope').setup {
             }
         }
     },
-    require'telescope'.setup {
+    require "telescope".setup {
         extensions = {
             media_files = {
                 -- filetypes whitelist
