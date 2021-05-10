@@ -56,7 +56,7 @@ vim.g.markdown_fenced_languages = {
     "javascript",
     "typescript",
     "yaml",
-    "json",
-    "gql=graphql",
-    "graphql"
+    "json"
+    -- "gql=graphql",
+    -- "graphql"
 }
