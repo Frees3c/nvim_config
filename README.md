@@ -63,3 +63,11 @@ brew install markdownlint-cli
 
 pandoc
 ```
+
+#### screenshots
+
+[![Dashboard](lua/nvim-dashboard/dashboard.png)](lua/nvim-dashboard/dashboard.png)
+
+[![Telescope](lua/nvim-telescope/telescope.png)](lua/nvim-telescope/telescope.png)
+
+[![Screenshot](screenshot.png)](screenshot.png)
