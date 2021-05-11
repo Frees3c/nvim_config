@@ -12,6 +12,8 @@
 >   - autocmds
 >   - gitgutter
 
+------------------------------------------------------------------------
+
 ## Install
 
 **Install packer**:
@@ -36,9 +38,11 @@ Install a supported language server, tab completion is supported:
 
 `go get github.com/mattn/efm-langserver`
 
+------------------------------------------------------------------------
+
 ## Formatters and Linters
 
-#### Python
+### Python
 
 ``` bash
 pip3 install --user flake8
@@ -46,7 +50,7 @@ pip3 install --user yapf
 pip3 install --user autopep8
 ```
 
-#### Lua
+### Lua
 
 `npm install -g lua-fmt`
 
@@ -54,7 +58,7 @@ pip3 install --user autopep8
 
 `npm install -g prettier`
 
-#### Markdown
+### Markdown
 
 ``` bash
 npm install -g markdownlint-cli
@@ -64,7 +68,9 @@ brew install markdownlint-cli
 pandoc
 ```
 
-#### screenshots
+------------------------------------------------------------------------
+
+## screenshots
 
 [![Dashboard](lua/nvim-dashboard/dashboard.png)](lua/nvim-dashboard/dashboard.png)
 
