@@ -195,6 +195,9 @@ lspconfig.bashls.setup {on_attach = on_attach}
 -- https://github.com/rcjsuen/dockerfile-language-server-nodejs
 lspconfig.dockerls.setup {on_attach = on_attach}
 
+-- npm install -g intelephense
+lspconfig.intelephense.setup {on_attach = on_attach}
+
 -- https://solargraph.org/
 lspconfig.solargraph.setup {
     root_dir = function()

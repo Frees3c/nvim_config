@@ -8,9 +8,6 @@
 > - fix indenting
 > - list key mappings
 > - Tidy up lsp/init.lua
-> - Remove unused files, settings etc.
->   - autocmds
->   - gitgutter
 
 ------------------------------------------------------------------------
 
@@ -66,6 +63,12 @@ npm install -g markdownlint-cli
 brew install markdownlint-cli
 
 pandoc
+```
+
+### PHP
+
+``` bash
+  npm install -g inteliphense
 ```
 
 ------------------------------------------------------------------------
