@@ -68,7 +68,7 @@ pandoc
 ### PHP
 
 ``` bash
-  npm install -g inteliphense
+  npm install -g intelephense
 ```
 
 ------------------------------------------------------------------------
