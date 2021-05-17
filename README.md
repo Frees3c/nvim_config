@@ -27,9 +27,13 @@ git clone https://github.com/wbthomason/packer.nvim\
 ## Lsp
 
 Install a supported language server, tab completion is supported:
-`:LspInstall <Language server>`
 
-`:LspInstall python lua diagnostics bash json html yaml vim css php ruby`
+``` bash
+:LspInstall <Language Server> 
+```
+
+Languages used in this config :
+`python, lua, diagnostics, bash, json, html, yaml, vim, css, php, ruby,latex`
 
 ## Install efm-langserver
 
@@ -51,7 +55,7 @@ pip3 install --user autopep8
 
 `npm install -g lua-fmt`
 
-**Yaml, Json, Javascript, HTML, CSS:**
+### Yaml, Json, Javascript, HTML, CSS
 
 `npm install -g prettier`
 
@@ -73,10 +77,10 @@ pandoc
 
 ------------------------------------------------------------------------
 
-## screenshots
+## Screenshots
 
 [![Dashboard](lua/nvim-dashboard/dashboard.png)](lua/nvim-dashboard/dashboard.png)
 
 [![Telescope](lua/nvim-telescope/telescope.png)](lua/nvim-telescope/telescope.png)
 
-[![Screenshot](screenshot.png)](screenshot.png)
+[![screen-shot](screenshot.png)](screenshot.png)

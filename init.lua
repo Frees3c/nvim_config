@@ -12,6 +12,7 @@ require("lsp")
 require("keymappings")
 require("colorscheme")
 require("nvim-galaxyline")
+-- require("nvim-lualine")
 
 -- Plugins
 require("dbg")
@@ -29,3 +30,4 @@ require("nvim-nvimtree")
 
 -- LSP
 require("lsp.lua-lsp")
+require("lsp.python-ls")

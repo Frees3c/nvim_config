@@ -8,7 +8,7 @@
 --
 -- ###################################################################################
 
--- vim.cmd("set shortmess+=c") -- Don't pass messages to |ins-completion-menu|.
+vim.cmd("set shortmess+=c") -- Don't pass messages to |ins-completion-menu|.
 vim.o.autoindent = true
 vim.o.autoread = true
 vim.o.autowrite = true
@@ -33,7 +33,7 @@ vim.o.shiftwidth = 4
 vim.o.showcmd = true
 vim.o.showmatch = true
 vim.o.sidescroll = 5
-vim.wo.signcolumn = "yes:2"
+vim.wo.signcolumn = "yes:1"
 vim.o.smartcase = true
 vim.o.smarttab = true
 vim.o.spell = true
@@ -57,6 +57,9 @@ vim.g.markdown_fenced_languages = {
     "typescript",
     "yaml",
     "json"
-    -- "gql=graphql",
-    -- "graphql"
 }
+
+DATA_PATH = vim.fn.stdpath('data')
+CACHE_PATH = vim.fn.stdpath('cache')
+
+

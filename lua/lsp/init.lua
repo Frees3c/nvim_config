@@ -19,8 +19,8 @@ vim.lsp.protocol.CompletionItemKind = {
     " [value]",
     " [enum]",
     " [key]",
-    " [Snippet]",
-    "﬌ [snippet]",
+    " [snippet]",
+    -- "﬌ [snippet]",
     " [color]",
     " [file]",
     " [reference]",
@@ -43,7 +43,8 @@ M.symbol_kind_icons = {
     Property = "",
     Struct = "",
     Enum = "",
-    Class = ""
+    Class = "",
+    Snippet = " [snippet]"
 }
 
 M.symbol_kind_colors = {
@@ -56,7 +57,8 @@ M.symbol_kind_colors = {
     Property = "blue",
     Struct = "cyan",
     Enum = "yellow",
-    Class = "red"
+    Class = "red",
+    Snippet = "green"
 }
 
 vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})
@@ -131,24 +133,7 @@ lspconfig.gopls.setup {
     end
 }
 
--- https://github.com/palantir/python-language-server
--- lspconfig.pyls.setup {
---     on_attach = on_attach,
---     settings = {
---         pyls = {
---             plugins = {
---                 pycodestyle = {
---                     enabled = false,
---                     ignore = {
---                         "E501"
---                     }
---                 }
---             }
---         }
---     }
--- }
-
-lspconfig.pyright.setup {on_attach = on_attach}
+-- lspconfig.pyright.setup {on_attach = on_attach}
 
 -- https://github.com/theia-ide/typescript-language-server
 lspconfig.tsserver.setup {
@@ -213,6 +198,15 @@ lspconfig.terraformls.setup {
     filetypes = {"tf"}
 }
 
+--
+-- Texlab not attaching to buffer...... why?!
+--
+lspconfig.texlab.setup {
+    cmd = {DATA_PATH .. "/lspinstall/latex/texlab"},
+    on_attach = on_attach,
+    filetypes = {"tex", "bib"}
+}
+
 local vint = require "efm/vint"
 local luafmt = require "efm/luafmt"
 local golint = require "efm/golint"
@@ -228,12 +222,14 @@ local terraform = require "efm/terraform"
 local misspell = require "efm/misspell"
 local pandoc = require "efm/pandoc"
 local markdownlint = require "efm/markdownlint"
+
 -- https://github.com/mattn/efm-langserver
 lspconfig.efm.setup {
     on_attach = on_attach,
     init_options = {documentFormatting = true},
     filetypes = {
-        "lua",
+        -- "lua",
+        -- "tex",
         "python",
         "javascriptreact",
         "javascript",
@@ -251,7 +247,7 @@ lspconfig.efm.setup {
             vim = {vint},
             lua = {luafmt},
             go = {golint, goimports},
-            python = {black, isort, flake8, mypy},
+            python = {black, flake8},
             -- python = {flake8},
             typescript = {prettier, eslint},
             javascript = {prettier, eslint},
@@ -268,7 +264,5 @@ lspconfig.efm.setup {
         }
     }
 }
-
-lspconfig.clangd.setup {on_attach = on_attach}
 
 return M

@@ -3,8 +3,8 @@
 --		  / __ \ / /__  __ ____ _ (_)____   _____
 --		 / /_/ // // / / // __ `// // __ \ / ___/
 --		/ ____// // /_/ // /_/ // // / / /(__  )
---	   /_/    /_/ \__,_/ \__, //_//_/ /_//____/
---						/____/
+--     /_/    /_/ \__,_/ \__, //_//_/ /_//____/
+--			        	/____/
 --
 -- ###################################################################################
 
@@ -57,16 +57,17 @@ return require("packer").startup(
         -- Coloring
         use "norcalli/nvim-colorizer.lua"
         use "tjdevries/colorbuddy.nvim"
-        use "sickill/vim-monokai"
+        use 'shaunsingh/nord.nvim'
+        use 'tanvirtin/monokai.nvim'
         use "tomasr/molokai"
         use "DilanGMB/nightbuddy"
         use "folke/tokyonight.nvim"
         use "Th3Whit3Wolf/space-nvim"
 
         -- Git
-        -- use 'TimUntersberger/neogit'
         use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}}
         use "kdheepak/lazygit.nvim"
+
         -- Ranger
         use "kevinhwang91/rnvimr"
 
@@ -75,8 +76,6 @@ return require("packer").startup(
         use {"akinsho/nvim-bufferline.lua", requires = "kyazdani42/nvim-web-devicons"} -- maybe replace with barbar
 
         -- Snippets
-        -- use 'golang/vscode-go'
-        -- use 'kitagry/vs-snippets'
         use "rafamadriz/friendly-snippets"
 
         -- General
@@ -84,6 +83,7 @@ return require("packer").startup(
         use "folke/which-key.nvim"
         use "glepnir/dashboard-nvim"
         use "windwp/nvim-autopairs"
+		use 'hoob3rt/lualine.nvim'
         use "glepnir/galaxyline.nvim"
         use {"iamcco/markdown-preview.nvim", run = "cd app && npm install"}
     end

@@ -18,7 +18,7 @@ local key_mapper = function(mode, key, result)
   )
 end
 
---************************************************************************************
+-- ***********************************************************************************
 --
 -- Vim Key Bindings
 --
@@ -71,11 +71,12 @@ key_mapper('i', 'jk',          '<Esc>')
 -- reload luafile
 key_mapper('n', '<leader>lf',  ':luafile %<CR>')
 
---*************************************************************************************
+
+-- *************************************************************************************
 --
---Plugin Bindings
+-- Plugin Bindings
 --
---*************************************************************************************
+-- *************************************************************************************
 
 -- LazyGit
 key_mapper('n', '<leader>lg',  ':LazyGit<CR>')
@@ -84,7 +85,7 @@ key_mapper('n', '<leader>lg',  ':LazyGit<CR>')
 key_mapper('n', '<leader>e',   ':NvimTreeToggle<CR>')
 
 -- Toggle Ranger
-key_mapper('n', '<leader>-',    ':RnvimrToggle<CR>')
+key_mapper('n', '<leader>-',   ':RnvimrToggle<CR>')
 
 -- Telescope
 key_mapper('n', '<leader>f',   ':Telescope find_files<CR>')
@@ -92,24 +93,39 @@ key_mapper('n', '<leader>fl',  ':Telescope live_grep<CR>')
 key_mapper('n', '<leader>fb',  ':Telescope buffers<CR>')
 key_mapper('n', '<leader>fh',  ':Telescope help_tags<CR>')
 key_mapper('n', '<leader>fg',  ':Telescope git_files<CR>')
-key_mapper('n', '<leader>fc',  ':Telescope colorscheme<cr>')
 
 -- lspsaga
-key_mapper("n", 'gh',           ':lua require(\'lspsaga.hover\').render_hover_doc()<CR>')
-key_mapper('n', 'ca',           ':Lspsaga code_action<CR>')
-key_mapper('n', 'K',            ':Lspsaga hover_doc<CR>')
--- key_mapper('n', <silent> <C-k> <cmd>lua vim.lsp.buf.signature_help()<CR>')
+key_mapper("n",  'gh',         ':lua require(\'lspsaga.hover\').render_hover_doc()<CR>')
+key_mapper('n',  'ca',         ':Lspsaga code_action<CR>')
+key_mapper('n',  'K',          ':Lspsaga hover_doc<CR>')
 key_mapper('n',  '<C-p>',      ':Lspsaga diagnostic_jump_prev<CR>')
 key_mapper('n',  '<C-n>',      ':Lspsaga diagnostic_jump_next<CR>')
--- scroll down hover doc or scroll in definition preview
-key_mapper('n',  '<C-f>', '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>')
--- scroll up hover doc
-key_mapper('n',  '<C-b>', '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>')
+key_mapper('n',  '<C-f>',      '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>')    -- scroll down hover doc
+key_mapper('n',  '<C-b>',      '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>')   -- scroll up hover doc
 vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()')
 
 -- Toggle Markdown Preview
 key_mapper('n', '<leader>md',   ':MarkdownPreviewToggle')
 
+-- dap, (Debugging)
+key_mapper('n', '<leader>dc',   '<cmd>lua require"dap".continue()<CR>')
+key_mapper('n', '<leader>dsv',  '<cmd>lua require"dap".step_over()<CR>')
+key_mapper('n', '<leader>dsi',  '<cmd>lua require"dap".step_into()<CR>')
+key_mapper('n', '<leader>dso',  '<cmd>lua require"dap".step_out()<CR>')
+key_mapper('n', '<leader>dtb',  '<cmd>lua require"dap".toggle_breakpoint()<CR>')
+key_mapper('n', '<leader>dsbr', '<cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>')
+key_mapper('n', '<leader>dsbm', '<cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>')
+key_mapper('n', '<leader>dro',  '<cmd>lua require"dap".repl.open()<CR>')
+key_mapper('n', '<leader>drl',  '<cmd>lua require"dap".repl.run_last()<CR>')
+
+--telescope-dap
+key_mapper('n', '<leader>dcc',  '<cmd>lua require"telescope".extensions.dap.commands{}<CR>')
+key_mapper('n', '<leader>dco',  '<cmd>lua require"telescope".extensions.dap.configurations{}<CR>')
+key_mapper('n', '<leader>dlb',  '<cmd>lua require"telescope".extensions.dap.list_breakpoints{}<CR>')
+key_mapper('n', '<leader>dv',   '<cmd>lua require"telescope".extensions.dap.variables{}<CR>')
+key_mapper('n', '<leader>df',   '<cmd>lua require"telescope".extensions.dap.frames{}<CR>')
+
+-- Compe completion
 vim.cmd([[
 inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
