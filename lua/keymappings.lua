@@ -105,7 +105,7 @@ key_mapper('n',  '<C-b>',      '<cmd>lua require(\'lspsaga.action\').smart_scrol
 vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()')
 
 -- Toggle Markdown Preview
-key_mapper('n', '<leader>md',   ':MarkdownPreviewToggle')
+key_mapper('n', '<leader>md',   ':MarkdownPreviewToggle<CR>')
 
 -- dap, (Debugging)
 key_mapper('n', '<leader>dc',   '<cmd>lua require"dap".continue()<CR>')

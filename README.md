@@ -4,9 +4,7 @@
 >
 > TODO//
 >
-> - fix auto commands
 > - fix indenting
-> - list key mappings
 > - Tidy up lsp/init.lua
 
 ------------------------------------------------------------------------
