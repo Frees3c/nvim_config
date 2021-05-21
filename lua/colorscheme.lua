@@ -13,6 +13,8 @@
 vim.g.nb_style = "twilight"
 require("colorbuddy").colorscheme("nightbuddy")
 
+vim.cmd[[hi DashboardHeader guifg=#1FFF00]]
+
 -- Nord colorscheme:
 -- require('nord').set()
 

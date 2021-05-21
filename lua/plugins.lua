@@ -83,8 +83,11 @@ return require("packer").startup(
         use "folke/which-key.nvim"
         use "glepnir/dashboard-nvim"
         use "windwp/nvim-autopairs"
-	use 'hoob3rt/lualine.nvim'
-        use "glepnir/galaxyline.nvim"
+		use {
+			'hoob3rt/lualine.nvim',
+			requires = {'kyazdani42/nvim-web-devicons', opt = true}
+		}
+        -- use "glepnir/galaxyline.nvim"
         use {"iamcco/markdown-preview.nvim", run = "cd app && npm install"}
     end
 )
