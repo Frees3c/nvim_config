@@ -7,7 +7,7 @@ end
 require("utils")
 require("settings")
 require("plugins")
-require("globals")
+-- require("globals")
 require("lsp")
 require("keymappings")
 require("colorscheme")
