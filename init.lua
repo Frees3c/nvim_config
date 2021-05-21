@@ -11,8 +11,8 @@ require("plugins")
 require("lsp")
 require("keymappings")
 require("colorscheme")
-require("nvim-galaxyline")
--- require("nvim-lualine")
+-- require("nvim-galaxyline")
+require("nvim-lualine")
 
 -- Plugins
 require("dbg")
