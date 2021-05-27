@@ -37,6 +37,9 @@ return require("packer").startup(
         use "hrsh7th/vim-vsnip"
         use "hrsh7th/nvim-compe"
 
+        -- Snippets
+        use "rafamadriz/friendly-snippets"
+
         -- Debugging
         use "mfussenegger/nvim-dap"
         use "mfussenegger/nvim-dap-python"
@@ -75,11 +78,10 @@ return require("packer").startup(
         -- use 'romgrk/barbar.nvim'
         use {"akinsho/nvim-bufferline.lua", requires = "kyazdani42/nvim-web-devicons"} -- maybe replace with barbar
 
-        -- Snippets
-        use "rafamadriz/friendly-snippets"
 
         -- General
         -- use "numtostr/FTerm.nvim"
+		use "kdav5758/TrueZen.nvim"
         use "folke/which-key.nvim"
         use "glepnir/dashboard-nvim"
         use "windwp/nvim-autopairs"
