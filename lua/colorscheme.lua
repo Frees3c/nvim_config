@@ -11,7 +11,9 @@
 -- Nightbuddy Colorshceme
 -- Style options for NightBuddy: twilight, night, midnight
 vim.g.nb_style = "twilight"
-require("colorbuddy").colorscheme("nightbuddy")
+-- vim.g.nb_style = "night"
+require("nebulous").setup()
+-- require("colorbuddy").colorscheme("nightbuddy")
 
 vim.cmd[[hi DashboardHeader guifg=#1FFF00]]
 
