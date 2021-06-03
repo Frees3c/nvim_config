@@ -63,8 +63,8 @@ return require("packer").startup(
         use 'shaunsingh/nord.nvim'
         use 'tanvirtin/monokai.nvim'
         use "tomasr/molokai"
-		use 'DilanGMB/nebulous.nvim'
---        use "DilanGMB/nightbuddy"
+		use 'Frees3c/nebulous.nvim'
+		-- use 'DilanGMB/nebulous.nvim'
         use "folke/tokyonight.nvim"
         use "Th3Whit3Wolf/space-nvim"
 
