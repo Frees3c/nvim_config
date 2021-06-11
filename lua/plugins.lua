@@ -67,6 +67,7 @@ return require("packer").startup(
 		-- use 'DilanGMB/nebulous.nvim'
         use "folke/tokyonight.nvim"
         use "Th3Whit3Wolf/space-nvim"
+        use "T3Whit3Wolf/one-nvim"
 
         -- Git
         use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}}
