@@ -28,6 +28,7 @@ require("nvim-colorizer")
 require("nvim-gitsigns")
 require("nvim-nvimtree")
 require("nvim-truezen")
+require("nvim-tabout")
 
 -- LSP
 require("lsp.lua-lsp")

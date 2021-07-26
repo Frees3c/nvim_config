@@ -86,6 +86,7 @@ return require("packer").startup(
         use "folke/which-key.nvim"
         use "glepnir/dashboard-nvim"
         use "windwp/nvim-autopairs"
+        use "abecodes/tabout.nvim"
 		use {
 			'hoob3rt/lualine.nvim',
 			requires = {'kyazdani42/nvim-web-devicons', opt = true}
