@@ -93,5 +93,6 @@ return require("packer").startup(
 		}
         -- use "glepnir/galaxyline.nvim"
         use {"iamcco/markdown-preview.nvim", run = "cd app && npm install"}
+		use { 'michaelb/sniprun', run = 'bash ./install.sh'}
     end
 )

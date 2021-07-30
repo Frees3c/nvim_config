@@ -29,6 +29,7 @@ require("nvim-gitsigns")
 require("nvim-nvimtree")
 require("nvim-truezen")
 require("nvim-tabout")
+require("nvim-sniprun")
 
 -- LSP
 require("lsp.lua-lsp")

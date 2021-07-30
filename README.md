@@ -1,11 +1,10 @@
-# My config for Neovim init.lua
+# My config for Neovim 0.5 init.lua
 
 > WiP:
 >
 > TODO//
 >
-> - Tidy up lsp/init.lua
-
+> - Make a better README.md 
 ------------------------------------------------------------------------
 
 ## Install
@@ -26,7 +25,7 @@ git clone https://github.com/wbthomason/packer.nvim\
 Install a supported language server, tab completion is supported:
 
 ``` bash
-:LspInstall <Language Server> 
+:LspInstall <Language Server>
 ```
 
 Languages used in this config :
@@ -76,8 +75,14 @@ pandoc
 
 ## Screenshots
 
+**Dashboard.nvim**:
 [![Dashboard](lua/nvim-dashboard/dashboard.png)](lua/nvim-dashboard/dashboard.png)
 
+**Telescope.nvim**:
 [![Telescope](lua/nvim-telescope/telescope.png)](lua/nvim-telescope/telescope.png)
 
+**SnipRun.nvim**:
+[![SnipRun](lua/nvim-sniprun/SnipRun_float.png)](lua/nvim-sniprun/SnipRun_float.png)
+
+**Neovim**:
 [![screen-shot](screenshot.png)](screenshot.png)
