@@ -60,9 +60,19 @@ key_mapper('v', '<',           '<gv')
 key_mapper('n', '<leader>y',   '\"+y')
 key_mapper('n', '<leader>Y',   '\"+yg_')
 
+-- Copy to end of line from current position
+key_mapper('n', 'Y',            'y$')
+
 -- Move selected line / block of text in visual mode
 key_mapper('x', 'K',           ':move \'<-2<CR>gv-gv')
 key_mapper('x', 'J',           ':move \'>+1<CR>gv-gv')
+
+-- Undo break points:
+key_mapper('i', ',',             ',<c-g>u')
+key_mapper('i', '.',             '.<c-g>u')
+key_mapper('i', '?',             '?<c-g>u')
+key_mapper('i', '!',             '!<c-g>u')
+key_mapper('i', '[',             '[<C-g>u')
 
 -- jk as Escape key
 key_mapper('i', 'kj',          '<Esc>')

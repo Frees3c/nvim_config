@@ -60,7 +60,7 @@ return require("packer").startup(
         -- Coloring
         use "norcalli/nvim-colorizer.lua"
         use "tjdevries/colorbuddy.nvim"
-        use 'shaunsingh/nord.nvim'
+        -- use 'shaunsingh/nord.nvim'
         use 'tanvirtin/monokai.nvim'
         use "tomasr/molokai"
 		use 'Frees3c/nebulous.nvim'
