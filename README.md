@@ -4,8 +4,7 @@
 >
 > TODO//
 >
-> - Make a better README.md 
-------------------------------------------------------------------------
+> - ## Make a better README.md
 
 ## Install
 
@@ -53,7 +52,8 @@ pip3 install --user autopep8
 
 ### Yaml, Json, Javascript, HTML, CSS
 
-`npm install -g prettier`
+`npm install -g typescript typescript-language-server`
+`npm i -g eslint_d prettier`
 
 ### Markdown
 
@@ -84,5 +84,4 @@ pandoc
 **SnipRun.nvim**:
 [![SnipRun](lua/nvim-sniprun/SnipRun_float.png)](lua/nvim-sniprun/SnipRun_float.png)
 
-**Neovim**:
-[![screen-shot](screenshot.png)](screenshot.png)
+**Neovim**: [![screen-shot](screenshot.png)](screenshot.png)
