@@ -1,6 +1,9 @@
 -- npm i -g pyright
 require'lspconfig'.pyright.setup {
     cmd = {DATA_PATH .. "/lspinstall/python/node_modules/.bin/pyright-langserver", "--stdio"},
+    root_dir = function()
+        return vim.loop.cwd()
+    end,
     on_attach = require'lsp'.on_attach,
 	filetypes = {"python"},
     handlers = {
