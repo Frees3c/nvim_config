@@ -76,12 +76,13 @@ pandoc
 ## Screenshots
 
 **Dashboard.nvim**:
-[![Dashboard](lua/nvim-dashboard/dashboard.png)](lua/nvim-dashboard/dashboard.png)
+[![Dashboard](Screenshots/dashboard.png)](Screenshots/dashboard.png)
 
 **Telescope.nvim**:
-[![Telescope](lua/nvim-telescope/telescope.png)](lua/nvim-telescope/telescope.png)
+[![Telescope](Screenshots/telescope.png)](Screenshots/telescope.png)
 
 **SnipRun.nvim**:
-[![SnipRun](lua/nvim-sniprun/SnipRun_float.png)](lua/nvim-sniprun/SnipRun_float.png)
+[![SnipRun](Screenshots/SnipRun_float.png)](Screenshots/SnipRun_float.png)
 
-**Neovim**: [![screen-shot](screenshot.png)](screenshot.png)
+**Neovim**:
+[![screen-shot](Screenshots/screenshot.png)](Screenshots/screenshot.png)

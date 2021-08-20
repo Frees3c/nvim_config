@@ -18,6 +18,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute "packadd packer.nvim"
 end
 
+
 return require("packer").startup(
     function(use)
         -- Packer can manage itself as an optional plugin
@@ -60,7 +61,6 @@ return require("packer").startup(
         -- Coloring
         use "norcalli/nvim-colorizer.lua"
         use "tjdevries/colorbuddy.nvim"
-        -- use 'shaunsingh/nord.nvim'
         use 'tanvirtin/monokai.nvim'
         use "tomasr/molokai"
 		use 'Frees3c/nebulous.nvim'
@@ -81,7 +81,7 @@ return require("packer").startup(
 
 
         -- General
-        -- use "numtostr/FTerm.nvim"
+        use "numtostr/FTerm.nvim"
 		use "kdav5758/TrueZen.nvim"
         use "folke/which-key.nvim"
         use "glepnir/dashboard-nvim"
@@ -96,3 +96,4 @@ return require("packer").startup(
 		use { 'michaelb/sniprun', run = 'bash ./install.sh'}
     end
 )
+
