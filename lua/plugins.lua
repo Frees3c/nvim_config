@@ -79,7 +79,6 @@ return require("packer").startup(
         -- use 'romgrk/barbar.nvim'
         use {"akinsho/nvim-bufferline.lua", requires = "kyazdani42/nvim-web-devicons"} -- maybe replace with barbar
 
-
         -- General
         use "numtostr/FTerm.nvim"
 		use "kdav5758/TrueZen.nvim"

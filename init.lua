@@ -28,6 +28,7 @@ require("Plugins.nvimtree")
 require("Plugins.truezen")
 require("Plugins.tabout")
 require("Plugins.sniprun")
+require("Plugins.fterm")
 
 -- LSP
 require("lsp.lua-lsp")
