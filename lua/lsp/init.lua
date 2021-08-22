@@ -20,7 +20,6 @@ vim.lsp.protocol.CompletionItemKind = {
     " [enum]",
     " [key]",
     " [snippet]",
-    -- "﬌ [snippet]",
     " [color]",
     " [file]",
     " [reference]",
@@ -44,7 +43,7 @@ M.symbol_kind_icons = {
     Struct = "",
     Enum = "",
     Class = "",
-    Snippet = " [snippet]"
+    Snippet = " "
 }
 
 M.symbol_kind_colors = {
