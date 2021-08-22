@@ -27,6 +27,13 @@ end
 -- Map leader to space
 vim.g.mapleader = ' '
 
+-- Encase selection in (), [], {}, "", ''
+key_mapper('x',  '<Leader>(',  'xi()<Esc>P')
+key_mapper('x',  '<Leader>"',  'xi""<Esc>P')
+key_mapper('x',  '<Leader>\'', 'xi\'\'<Esc>P')
+key_mapper('x',  '<Leader>[',  'xi[]<Esc>P')
+key_mapper('x',  '<Leader>{',  'xi{}<Esc>P')
+
 -- Window Navigation
 key_mapper('n', '<C-h>',      '<C-w>h')
 key_mapper('n', '<C-l>',      '<C-w>l')
@@ -40,7 +47,9 @@ key_mapper('n', '<leader>bd', ':bdelete<CR>')
 
 -- init.lua
 key_mapper('n', '<leader>ev', ':e ~/.config/nvim/init.lua')
--- key_mapper('n', '<leader>sv' ':luafile ~/.config/nvim/init.lua')
+
+-- reload luafile
+key_mapper('n', '<leader>lf',  ':luafile %<CR>')
 
 -- Move line up or down
 key_mapper('n', '<C-k>',      ':m-2<cr>')
@@ -77,9 +86,6 @@ key_mapper('i', '[',             '[<C-g>u')
 -- jk as Escape key
 key_mapper('i', 'kj',          '<Esc>')
 key_mapper('i', 'jk',          '<Esc>')
-
--- reload luafile
-key_mapper('n', '<leader>lf',  ':luafile %<CR>')
 
 -- Packer
 key_mapper('n', '<Leader>ps',  ':PackerSync <CR>')
