@@ -34,6 +34,10 @@ key_mapper('x',  '<Leader>\'', 'xi\'\'<Esc>P')
 key_mapper('x',  '<Leader>[',  'xi[]<Esc>P')
 key_mapper('x',  '<Leader>{',  'xi{}<Esc>P')
 
+-- Change word to uppercase(ctrl+u) or lower(space+l)
+key_mapper('n', '<leader>l',  'viwgui<ESC>')
+key_mapper('n', '<c-u>',      'viwUi<ESC>')
+
 -- Window Navigation
 key_mapper('n', '<C-h>',      '<C-w>h')
 key_mapper('n', '<C-l>',      '<C-w>l')
