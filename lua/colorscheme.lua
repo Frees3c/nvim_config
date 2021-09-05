@@ -10,14 +10,10 @@
 
 -- Nightbuddy Colorscheme
 -- Style options for Nebulous: twilight, night, midnight
-vim.g.nb_style = "twilight"
-vim.cmd[[colorscheme nebulous]]
--- vim.cmd[[hi DashboardHeader guifg=#1FFF00]]
-
-
--- Nord colorscheme:
--- require('nord').set()
-
+-- vim.g.nb_style = "twilight"
+-- vim.cmd[[colorscheme nebulous]]
 
 -- Monokai Colorshceme:
--- vim.cmd[[colorscheme monokai]]
+-- vim.cmd[[colorscheme monokai_soda]]
+
+vim.cmd[[colorscheme aurora]]

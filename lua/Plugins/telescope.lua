@@ -59,7 +59,6 @@ require("telescope").setup {
             n = {
                 ["<C-j>"] = actions.move_selection_next,
                 ["<C-k>"] = actions.move_selection_previous
-                -- ["<C-i>"] = my_cool_custom_action,
             }
         }
     },
@@ -68,7 +67,7 @@ require("telescope").setup {
             media_files = {
                 -- filetypes whitelist
                 -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-                filetypes = {"png", "webp", "jpg", "jpeg"},
+                filetypes = {"png", "pdf", "webp", "jpg", "jpeg"},
                 find_cmd = "rg" -- find command (defaults to `fd`)
             }
         }

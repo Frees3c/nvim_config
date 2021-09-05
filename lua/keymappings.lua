@@ -27,10 +27,14 @@ end
 -- Map leader to space
 vim.g.mapleader = ' '
 
+-- Faster scrolling
+key_mapper('n', '<c-e>',       '3<c-e>')
+key_mapper('n', '<c-y>',       '3<c-y>')
+
 -- Encase selection in (), [], {}, "", ''
 key_mapper('x',  '<Leader>(',  'xi()<Esc>P')
 key_mapper('x',  '<Leader>"',  'xi""<Esc>P')
-key_mapper('x',  '<Leader>\'', 'xi\'\'<Esc>P')
+-- key_mapper('x',  '<leader>\'', 'xi\'\'<Esc>P') -- Figure out how to get this working.
 key_mapper('x',  '<Leader>[',  'xi[]<Esc>P')
 key_mapper('x',  '<Leader>{',  'xi{}<Esc>P')
 
@@ -65,7 +69,7 @@ key_mapper('n', '<leader>h',  ':noh<CR>')
 -- insert new line above without enerting insert mode.
 key_mapper('n', '<leader>o',   'moO<ESC> ')
 
--- Better indentaion (tabbing)
+-- Better indentaion (tab)
 key_mapper('v', '>',           '>gv')
 key_mapper('v', '<',           '<gv')
 
@@ -81,20 +85,15 @@ key_mapper('x', 'K',           ':move \'<-2<CR>gv-gv')
 key_mapper('x', 'J',           ':move \'>+1<CR>gv-gv')
 
 -- Undo break points:
-key_mapper('i', ',',             ',<c-g>u')
-key_mapper('i', '.',             '.<c-g>u')
-key_mapper('i', '?',             '?<c-g>u')
-key_mapper('i', '!',             '!<c-g>u')
-key_mapper('i', '[',             '[<C-g>u')
+key_mapper('i', ',',           ',<c-g>u')
+key_mapper('i', '.',           '.<c-g>u')
+key_mapper('i', '?',           '?<c-g>u')
+key_mapper('i', '!',           '!<c-g>u')
+key_mapper('i', '[',           '[<C-g>u')
 
 -- jk as Escape key
 key_mapper('i', 'kj',          '<Esc>')
 key_mapper('i', 'jk',          '<Esc>')
-
--- Packer
-key_mapper('n', '<Leader>ps',  ':PackerSync <CR>')
-key_mapper('n', '<Leader>pi',  ':PackerInstall <CR>')
-key_mapper('n', '<leader>pu',  ':PackerUpdate <CR>')
 
 
 -- *************************************************************************************
@@ -102,6 +101,11 @@ key_mapper('n', '<leader>pu',  ':PackerUpdate <CR>')
 -- Plugin Bindings
 --
 -- *************************************************************************************
+
+-- Packer
+key_mapper('n', '<Leader>ps',  ':PackerSync <CR>')
+key_mapper('n', '<Leader>pi',  ':PackerInstall <CR>')
+key_mapper('n', '<leader>pu',  ':PackerUpdate <CR>')
 
 -- LazyGit
 key_mapper('n', '<leader>lg',  ':LazyGit<CR>')
@@ -118,7 +122,11 @@ key_mapper('n', '<leader>fl',  ':Telescope live_grep<CR>')
 key_mapper('n', '<leader>fb',  ':Telescope buffers<CR>')
 key_mapper('n', '<leader>fh',  ':Telescope help_tags<CR>')
 key_mapper('n', '<leader>fg',  ':Telescope git_files<CR>')
-
+key_mapper('n', '<leader>fq',  ':Telescope quickfix<CR>')
+key_mapper('n', '<leader>fx',  ':Telescope git_status<cr>')
+key_mapper('n', '<leader>fc',  ':Telescope git_commits<cr>')
+key_mapper('n', '<leader>fgw', ':Telescope grep_string<cr>')
+--
 -- lspsaga
 key_mapper("n",  'gh',         ':lua require(\'lspsaga.hover\').render_hover_doc()<CR>')
 key_mapper('n',  'ca',         ':Lspsaga code_action<CR>')
@@ -130,7 +138,7 @@ key_mapper('n',  '<C-b>',      '<cmd>lua require(\'lspsaga.action\').smart_scrol
 vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()')
 
 -- Toggle Markdown Preview
-key_mapper('n', '<leader>md',   ':MarkdownPreviewToggle<CR>')
+key_mapper('n', '<leader>md',  ':MarkdownPreviewToggle<CR>')
 
 -- dap, (Debugging)
 key_mapper('n', '<leader>dc',   '<cmd>lua require"dap".continue()<CR>')
@@ -159,4 +167,3 @@ inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <C-e>     compe#close('<C-e>')
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
     ]])
-

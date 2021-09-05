@@ -22,7 +22,7 @@ end
 return require("packer").startup(
     function(use)
         -- Packer can manage itself as an optional plugin
-        use {"wbthomason/packer.nvim"}
+        use {"wbthomason/packer.nvim", opt=true}
 
         -- Quality of life improvements
         use "norcalli/nvim_utils"
@@ -61,16 +61,14 @@ return require("packer").startup(
         -- Coloring
         use "norcalli/nvim-colorizer.lua"
         use "tjdevries/colorbuddy.nvim"
-        use 'tanvirtin/monokai.nvim'
-        use "tomasr/molokai"
-		use 'Frees3c/nebulous.nvim'
+      	use 'glepnir/zephyr-nvim'
+        use 'marko-cerovac/material.nvim'
+    		use 'ray-x/aurora'
 		-- use 'DilanGMB/nebulous.nvim'
-        use "folke/tokyonight.nvim"
-        use "Th3Whit3Wolf/space-nvim"
 
         -- Git
         use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}}
-        use "kdheepak/lazygit.nvim"
+        use {"kdheepak/lazygit.nvim", opt=true}
 
         -- Ranger
         use "kevinhwang91/rnvimr"
@@ -81,18 +79,17 @@ return require("packer").startup(
 
         -- General
         use "numtostr/FTerm.nvim"
-		use "kdav5758/TrueZen.nvim"
+        use "kdav5758/TrueZen.nvim"
         use "folke/which-key.nvim"
         use "glepnir/dashboard-nvim"
         use "windwp/nvim-autopairs"
         use "abecodes/tabout.nvim"
-		use {
-			'hoob3rt/lualine.nvim',
-			requires = {'kyazdani42/nvim-web-devicons', opt = true}
-		}
+        use {
+            'hoob3rt/lualine.nvim',
+              requires = {'kyazdani42/nvim-web-devicons', opt = true}
+      }
         -- use "glepnir/galaxyline.nvim"
         use {"iamcco/markdown-preview.nvim", run = "cd app && npm install"}
-		use { 'michaelb/sniprun', run = 'bash ./install.sh'}
     end
 )
 
