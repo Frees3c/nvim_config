@@ -87,13 +87,13 @@ local on_attach = function(client)
         )
     end
     if client.resolved_capabilities.rename then
-        utils.map("n", "<Space>rn", "<cmd>lua require'lsp.rename'.rename()<CR>", {silent = true, buffer = true})
+        utils.map("n", "<C-a>", "<cmd>lua require'lsp.rename'.rename()<CR>", {silent = true, buffer = true})
     end
 
-    utils.map("n", "<Space><CR>", "<cmd>lua require'lsp.diagnostics'.line_diagnostics()<CR>", {buffer = true})
+    utils.map("n", "<Leader><CR>", "<cmd>lua require'lsp.diagnostics'.line_diagnostics()<CR>", {buffer = true})
 end
 
-function _G.activeLSP()
+function _G.antiveLSP()
     local servers = {}
     for _, lsp in pairs(vim.lsp.get_active_clients()) do
         table.insert(servers, {name = lsp.name, id = lsp.id})

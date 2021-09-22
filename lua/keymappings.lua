@@ -47,8 +47,8 @@ key_mapper('n', '<C-h>',      '<C-w>h')
 key_mapper('n', '<C-l>',      '<C-w>l')
 
 -- Tab to switch buffer
-key_mapper('n', '<TAB>',      ':bnext<CR>')
-key_mapper('n', '<S-TAB>',    ':bprevious<CR>')
+-- key_mapper('n', '<TAB>',      ':bnext<CR>')
+-- key_mapper('n', '<S-TAB>',    ':bprevious<CR>')
 
 -- Kill buffer with leader bd
 key_mapper('n', '<leader>bd', ':bdelete<CR>')

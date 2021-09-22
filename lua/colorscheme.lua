@@ -16,4 +16,5 @@
 -- Monokai Colorshceme:
 -- vim.cmd[[colorscheme monokai_soda]]
 
-vim.cmd[[colorscheme aurora]]
+-- vim.cmd[[colorscheme aurora]]
+vim.cmd[[colorscheme dark_catppuccino]]

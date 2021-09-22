@@ -22,7 +22,7 @@ end
 return require("packer").startup(
     function(use)
         -- Packer can manage itself as an optional plugin
-        use {"wbthomason/packer.nvim", opt=true}
+        use "wbthomason/packer.nvim"
 
         -- Quality of life improvements
         use "norcalli/nvim_utils"
@@ -57,8 +57,10 @@ return require("packer").startup(
         use "nvim-lua/popup.nvim"
         use "nvim-lua/plenary.nvim"
         use "nvim-telescope/telescope-media-files.nvim"
+        use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
         -- Coloring
+        use "Pocco81/Catppuccino.nvim"
         use "norcalli/nvim-colorizer.lua"
         use "tjdevries/colorbuddy.nvim"
       	use 'glepnir/zephyr-nvim'
@@ -77,7 +79,7 @@ return require("packer").startup(
         -- use 'romgrk/barbar.nvim'
         use {"akinsho/nvim-bufferline.lua", requires = "kyazdani42/nvim-web-devicons"} -- maybe replace with barbar
 
-        -- General
+        -- general
         use "numtostr/FTerm.nvim"
         use "kdav5758/TrueZen.nvim"
         use "folke/which-key.nvim"

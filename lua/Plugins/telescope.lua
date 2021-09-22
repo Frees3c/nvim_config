@@ -2,8 +2,23 @@ local actions = require("telescope.actions")
 -- Global remapping
 ------------------------------
 -- '--color=never',
-require("telescope").load_extension("media_files")
+require("telescope").load_extension("media_files", 'fzf')
 require("telescope").setup {
+  extensions = {
+    media_files = {
+      -- filetypes whitelist
+      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
+      filetypes = {"png", "pdf", "webp", "jpg", "jpeg"},
+      find_cmd = "rg" -- find command (defaults to `fd`)
+    },
+    fzf = {
+      fuzzy = true,                    -- false will only do exact matching
+      override_generic_sorter = true,  -- override the generic sorter
+      override_file_sorter = true,     -- override the file sorter
+      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
+                                       -- the default case_mode is "smart_case"
+    }
+  },
     defaults = {
         vimgrep_arguments = {"rg", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case"},
         prompt_prefix = " 🔎 ",
@@ -21,9 +36,9 @@ require("telescope").setup {
             horizontal = {mirror = false},
             vertical = {mirror = false}
         },
-        file_sorter = require "telescope.sorters".get_fuzzy_file,
+        file_sorter = require "telescope.sorters".get_fzy_sorter,
         file_ignore_patterns = {"go/", "node_modules/"},
-        generic_sorter = require "telescope.sorters".get_generic_fuzzy_sorter,
+        generic_sorter = require "telescope.sorters".get_fzy_sorter,
         path_display = { "full" },
         winblend = 0,
         border = {},
@@ -63,13 +78,5 @@ require("telescope").setup {
         }
     },
     require "telescope".setup {
-        extensions = {
-            media_files = {
-                -- filetypes whitelist
-                -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-                filetypes = {"png", "pdf", "webp", "jpg", "jpeg"},
-                find_cmd = "rg" -- find command (defaults to `fd`)
-            }
-        }
     }
 }
