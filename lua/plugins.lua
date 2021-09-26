@@ -81,6 +81,7 @@ return require("packer").startup(
 
         -- general
         use "numtostr/FTerm.nvim"
+        use "tversteeg/registers.nvim"
         use "kdav5758/TrueZen.nvim"
         use "folke/which-key.nvim"
         use "glepnir/dashboard-nvim"
