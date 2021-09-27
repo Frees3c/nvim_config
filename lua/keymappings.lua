@@ -160,10 +160,3 @@ key_mapper('n', '<leader>df',   '<cmd>lua require"telescope".extensions.dap.fram
 
 -- TrueZen
 key_mapper('n', '<leader>tz',   ':TZAtaraxis <CR>')
-
--- Compe completion
-vim.cmd([[
-inoremap <silent><expr> <C-Space> compe#complete()
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-    ]])

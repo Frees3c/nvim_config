@@ -3,8 +3,8 @@
 --		  / __ \ / /__  __ ____ _ (_)____   _____
 --		 / /_/ // // / / // __ `// // __ \ / ___/
 --		/ ____// // /_/ // /_/ // // / / /(__  )
---     /_/    /_/ \__,_/ \__, //_//_/ /_//____/
---			        	/____/
+--   /_/    /_/ \__,_/ \__, //_//_/ /_//____/
+--    			        	/____/
 --
 -- ###################################################################################
 
@@ -35,8 +35,15 @@ return require("packer").startup(
         use "jose-elias-alvarez/nvim-lsp-ts-utils"
 
         -- Auto completion
+        use "hrsh7th/nvim-cmp"
+        use "hrsh7th/cmp-nvim-lsp"
+        use "hrsh7th/cmp-buffer"
+        use "hrsh7th/cmp-vsnip"
+        use "hrsh7th/cmp-path"
+        use "hrsh7th/cmp-emoji"
+        use "hrsh7th/cmp-latex-symbols"
         use "hrsh7th/vim-vsnip"
-        use "hrsh7th/nvim-compe"
+        use "hrsh7th/cmp-nvim-lua"
 
         -- Snippets
         use "rafamadriz/friendly-snippets"

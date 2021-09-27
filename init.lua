@@ -21,19 +21,17 @@ require("treesitter")
 
 
 -- Plugins
+require("Plugins.cmp")
+require("Plugins.nvimtree")
 require("Plugins.lualine")
 require("Plugins.dashboard")
-require("Plugins.compe")
 require("Plugins.autopairs")
 require("Plugins.bufferline")
 require("Plugins.telescope")
 require("Plugins.comment")
 require("Plugins.colorizer")
 require("Plugins.gitsigns")
-require("Plugins.nvimtree")
 require("Plugins.truezen")
-require("Plugins.tabout")
--- require("Plugins.sniprun")
 require("Plugins.fterm")
 
 -- LSP
