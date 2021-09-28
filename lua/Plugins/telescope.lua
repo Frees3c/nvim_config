@@ -2,15 +2,9 @@ local actions = require("telescope.actions")
 -- Global remapping
 ------------------------------
 -- '--color=never',
-require("telescope").load_extension("media_files", 'fzf')
+require("telescope").load_extension("fzf")
 require("telescope").setup {
   extensions = {
-    media_files = {
-      -- filetypes whitelist
-      -- defaults to {"png", "jpg", "mp4", "webm", "pdf"}
-      filetypes = {"png", "pdf", "webp", "jpg", "jpeg"},
-      find_cmd = "rg" -- find command (defaults to `fd`)
-    },
     fzf = {
       fuzzy = true,                    -- false will only do exact matching
       override_generic_sorter = true,  -- override the generic sorter
