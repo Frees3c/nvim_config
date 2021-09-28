@@ -2,7 +2,8 @@ require('lualine').setup {
   options = {
     icons_enabled = true,
     -- theme = 'molokai',
-    theme = 'codedark',
+    -- theme = 'codedark',
+    theme = 'auto',
     component_separators = {'', ''},
     section_separators = {'', ''},
     disabled_filetypes = {}
