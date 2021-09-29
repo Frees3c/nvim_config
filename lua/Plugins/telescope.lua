@@ -2,7 +2,7 @@ local actions = require("telescope.actions")
 -- Global remapping
 ------------------------------
 -- '--color=never',
-require("telescope").load_extension("fzf")
+require("telescope").load_extension("fzf", "sessions")
 require("telescope").setup {
   extensions = {
     fzf = {

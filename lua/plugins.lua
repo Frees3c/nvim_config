@@ -33,6 +33,7 @@ return require("packer").startup(
         use "glepnir/lspsaga.nvim"
         use "terrortylor/nvim-comment"
         use "jose-elias-alvarez/nvim-lsp-ts-utils"
+        use "Shatur/neovim-session-manager"
 
         -- Auto completion
         use "hrsh7th/nvim-cmp"

@@ -107,6 +107,11 @@ key_mapper('n', '<Leader>ps',  ':PackerSync <CR>')
 key_mapper('n', '<Leader>pi',  ':PackerInstall <CR>')
 key_mapper('n', '<leader>pu',  ':PackerUpdate <CR>')
 
+-- Sessions
+key_mapper('n', '<leader>ss',   ':SaveSession<CR>')
+key_mapper('n', '<leader>fs',   ':Telescope sessions<CR>')
+
+
 -- FTerm
 key_mapper('n', '<leader>t', '<CMD>lua require("FTerm").toggle()<CR>')
 key_mapper('t', '<leader>t', '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
