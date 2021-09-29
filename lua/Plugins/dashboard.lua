@@ -46,7 +46,8 @@ vim.g.dashboard_custom_section = {
     a = {description = {"  Find File          "}, command = "Telescope find_files"},
     b = {description = {"  Recently Used Files"}, command = "Telescope oldfiles"},
     c = {description = {"  New File           "}, command = ":DashboardNewFile"},
-    d = {description = {"  Find Word          "}, command = "Telescope live_grep"},
-    e = {description = {"  Settings           "}, command = ":e ~/.config/nvim/lua/settings.lua"},
-    f = {description = {"  Marks              "}, command = "Telescope marks"}
+    d = {description = {"  Sessions           "}, command = "Telescope sessions"},
+    e = {description = {"  Find Word          "}, command = "Telescope live_grep"},
+    f = {description = {"  Settings           "}, command = ":e ~/.config/nvim/lua/settings.lua"},
+    g = {description = {"  Marks              "}, command = "Telescope marks"}
 }

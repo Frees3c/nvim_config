@@ -2,7 +2,6 @@ local actions = require("telescope.actions")
 -- Global remapping
 ------------------------------
 -- '--color=never',
-require("telescope").load_extension("fzf", "sessions")
 require("telescope").setup {
   extensions = {
     fzf = {
@@ -30,9 +29,9 @@ require("telescope").setup {
             horizontal = {mirror = false},
             vertical = {mirror = false}
         },
-        file_sorter = require "telescope.sorters".get_fzy_sorter,
+        file_sorter = require("telescope.sorters").get_fzy_sorter,
         file_ignore_patterns = {"go/", "node_modules/"},
-        generic_sorter = require "telescope.sorters".get_fzy_sorter,
+        generic_sorter = require("telescope.sorters").get_fzy_sorter,
         path_display = { "full" },
         winblend = 0,
         border = {},
@@ -70,7 +69,7 @@ require("telescope").setup {
                 ["<C-k>"] = actions.move_selection_previous
             }
         }
-    },
-    require "telescope".setup {
     }
 }
+require("telescope").load_extension("fzf")
+require("telescope").load_extension('sessions')
