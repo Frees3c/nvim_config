@@ -71,6 +71,10 @@ opt.shortmess = table.concat({
   'c',  -- Do not show ins-completion-menu messages (match 1 of 2)
 })
 
+-- Sessions
+vim.g.autoload_last_session = false
+
+-- Markdown
 vim.g.markdown_fenced_languages = {
     "vim",
     "python",
