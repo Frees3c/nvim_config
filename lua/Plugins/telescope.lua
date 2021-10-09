@@ -30,7 +30,7 @@ require("telescope").setup {
             vertical = {mirror = false}
         },
         file_sorter = require("telescope.sorters").get_fzy_sorter,
-        file_ignore_patterns = {"go/", "node_modules/"},
+        file_ignore_patterns = {"go/", "node_modules/", ".gem"},
         generic_sorter = require("telescope.sorters").get_fzy_sorter,
         path_display = { "full" },
         winblend = 0,

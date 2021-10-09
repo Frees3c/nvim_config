@@ -46,7 +46,7 @@ cmp.setup {
   -- ... Your other configuration ...
 
   mapping = {
-    ["<Tab>"] = cmp.mapping(function(fallback)
+    ["<TAB>"] = cmp.mapping(function(fallback)
       if vim.fn.pumvisible() == 1 then
         feedkey("<C-n>", "n")
       elseif vim.fn["vsnip#available"]() == 1 then
@@ -58,7 +58,7 @@ cmp.setup {
       end
     end, { "i", "s" }),
 
-    ["<S-Tab>"] = cmp.mapping(function()
+    ["<S-TAB>"] = cmp.mapping(function()
       if vim.fn.pumvisible() == 1 then
         feedkey("<C-p>", "n")
       elseif vim.fn["vsnip#jumpable"](-1) == 1 then
