@@ -49,7 +49,7 @@ nvimtree.setup {
   disable_netrw = true,
   hijack_netrw = true,
   auto_close = true,
-  lsp_diagnostics = true,
+  -- lsp_diagnostics = true,
   hijack_cursor = true,
   update_focused_file = {
     enable = true,

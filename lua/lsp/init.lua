@@ -1,5 +1,5 @@
 require "lsp.handlers"
-require "lsp.formatting"
+-- require "lsp.formatting"
 local lspconfig = require "lspconfig"
 local utils = require "utils"
 local M = {}
@@ -66,12 +66,13 @@ vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspD
 vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
 
 local on_attach = function(client)
-    if client.resolved_capabilities.document_formatting then
-        vim.cmd [[augroup Format]]
-        vim.cmd [[autocmd! * <buffer>]]
-        vim.cmd [[autocmd BufWritePost <buffer> lua require'lsp.formatting'.format()]]
-        vim.cmd [[augroup END]]
-    end
+  if client.resolved_capabilities.document_formatting then
+    vim.cmd [[augroup Format]]
+    vim.cmd [[autocmd! * <buffer>]]
+    -- vim.cmd [[autocmd BufWritePost <buffer> lua require'lsp.formatting'.format()]]
+    vim.cmd [[autocmd bufwritepre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+    vim.cmd [[augroup END]]
+  end
     if client.resolved_capabilities.goto_definition then
         utils.map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {buffer = true})
     end

@@ -25,7 +25,7 @@ return require("packer").startup(
         use "wbthomason/packer.nvim"
 
         -- Quality of life improvements
-        use "norcalli/nvim_utils"
+        -- use "norcalli/nvim_utils"
         use "neovim/nvim-lspconfig"
         use "kabouzeid/nvim-lspinstall"
         use "kyazdani42/nvim-tree.lua"
