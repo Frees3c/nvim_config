@@ -34,6 +34,7 @@ return require("packer").startup(
         use "terrortylor/nvim-comment"
         use "jose-elias-alvarez/nvim-lsp-ts-utils"
         use "Shatur/neovim-session-manager"
+        use "lukas-reineke/indent-blankline.nvim"
 
         -- Auto completion
         use "hrsh7th/nvim-cmp"
