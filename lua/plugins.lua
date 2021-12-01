@@ -74,6 +74,7 @@ return require("packer").startup(
       	use 'glepnir/zephyr-nvim'
         use 'marko-cerovac/material.nvim'
     		use 'ray-x/aurora'
+        use 'tiagovla/tokyodark.nvim'
 		-- use 'DilanGMB/nebulous.nvim'
 
         -- Git
@@ -91,8 +92,9 @@ return require("packer").startup(
         use "tversteeg/registers.nvim"
         use "kdav5758/TrueZen.nvim"
         use "folke/which-key.nvim"
-        use "glepnir/dashboard-nvim"
+        -- use "glepnir/dashboard-nvim"
         use "windwp/nvim-autopairs"
+        use "ellisonleao/glow.nvim"
         use {
             'hoob3rt/lualine.nvim',
               requires = {'kyazdani42/nvim-web-devicons', opt = true}
