@@ -34,6 +34,7 @@ require("Plugins.gitsigns")
 require("Plugins.truezen")
 require("Plugins.fterm")
 require("Plugins.sessions")
+require("Plugins.rename")
 
 -- LSP
 require("lsp.lua-lsp")

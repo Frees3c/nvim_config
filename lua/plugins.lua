@@ -87,6 +87,12 @@ return require("packer").startup(
         -- use 'romgrk/barbar.nvim'
         use {"akinsho/nvim-bufferline.lua", requires = "kyazdani42/nvim-web-devicons"} -- maybe replace with barbar
 
+        -- Remame like vscode
+        use {
+          'filipdutescu/renamer.nvim',
+          branch = 'master',
+          requires = { {'nvim-lua/plenary.nvim'} }
+        }
         -- general
         use "numtostr/FTerm.nvim"
         use "tversteeg/registers.nvim"
