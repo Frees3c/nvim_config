@@ -104,7 +104,7 @@ return require("packer").startup(
         use {
             'hoob3rt/lualine.nvim',
               requires = {'kyazdani42/nvim-web-devicons', opt = true}
-      }
+            }
         -- use "glepnir/galaxyline.nvim"
         use {"iamcco/markdown-preview.nvim", run = "cd app && npm install"}
     end
