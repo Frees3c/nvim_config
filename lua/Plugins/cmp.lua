@@ -15,9 +15,15 @@ end
 
 -- cmp config
 -- If you want insert `(` after select function or method item
-local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local types = require('cmp.types')
 local WIDE_HEIGHT = 40
+local t = function(str)
+  return vim.api.nvim_replace_termcodes(str, true, true, true)
+end
+local check_back_space = function()
+  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
+  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
+end
 local cmp = require('cmp')
 cmp.setup {
   completion = {
@@ -46,24 +52,28 @@ cmp.setup {
     min_length = 0, -- allow for `from package import _` in Python
 
   -- ... Your other configuration ...
-    cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } })),
 
     mapping = {
-      -- other mappings
-      ["<Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_next_item()
-        else
-          fallback()
-          end
-        end, { "i" }),
-      ["<S-Tab>"] = cmp.mapping(function(fallback)
-        if cmp.visible() then
-          cmp.select_prev_item()
-        else
-          fallback()
-          end
-        end, { "i" }),
+      ["<C-p>"] = cmp.mapping.select_prev_item(),
+          ["<C-n>"] = cmp.mapping.select_next_item(),
+          ["<Tab>"] = cmp.mapping(function(fallback)
+            if cmp.visible() then
+              vim.fn.feedkeys(t("<cr>"), "")
+            elseif vim.fn["vsnip#available"](1) == 1 then
+              vim.fn.feedkeys(t("<Plug>(vsnip-expand-or-jump)"), "")
+            elseif check_back_space() then
+              vim.fn.feedkeys(t("<tab>"), "n")
+            else
+              fallback()
+            end
+          end, {
+            "i",
+            "s",
+          }),
+          ["<CR>"] = cmp.mapping.confirm({
+            behavior = cmp.ConfirmBehavior.Replace,
+            select = true,
+          }),
       },
   formatting = {
       format = function(entry, vim_item)
@@ -96,6 +106,9 @@ cmp.setup {
     { name = 'nvim_lua'}
   }
 }
+local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
+
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)

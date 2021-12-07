@@ -1,8 +1,37 @@
-require('nvim-autopairs').setup()
-
+-- require('nvim-autopairs').setup()
+require('nvim-autopairs').setup({
+    disable_filetype = { "TelescopePrompt" },
+    disable_in_macro = false,  -- disable when recording or executing a macro
+    disable_in_visualblock = false, -- disable when insert after visual block mode
+    ignored_next_char = string.gsub([[ [%w%%%'%[%"%.] ]],"%s+", ""),
+    enable_moveright = true,
+    enable_afterquote = true,  -- add bracket pairs after quote
+    enable_check_bracket_line = true,  --- check bracket in same line
+    check_ts = false,
+    map_bs = true,  -- map the <BS> key
+    map_c_w = false, -- map <c-w> to delete a pair if possible
+})
 -- local remap = vim.api.nvim_set_keymap
+-- put this to setup function and press <a-e> to use fast_wrap
 local npairs = require('nvim-autopairs')
+npairs.setup({
+    fast_wrap = {},
+})
 
+-- change default fast_wrap
+npairs.setup({
+    fast_wrap = {
+      map = '<C-e>',
+      chars = { '{', '[', '(', '"', "'" },
+      pattern = string.gsub([[ [%'%"%)%>%]%)%}%,] ]], '%s+', ''),
+      offset = 0, -- Offset from pattern match
+      end_key = '$',
+      keys = 'qwertyuiopzxcvbnmasdfghjkl',
+      check_comma = true,
+      highlight = 'Search',
+      highlight_grey='Comment'
+    },
+})
 -- skip it, if you use another global object
 _G.MUtils= {}
 
