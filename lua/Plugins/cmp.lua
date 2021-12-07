@@ -1,29 +1,19 @@
 -- nvim-cmp config.
 -- Vsnip Stuff from: https://github.com/hrsh7th/nvim-cmp/wiki/Example-mappings
 
-local has_words_before = function()
-  if vim.api.nvim_buf_get_option(0, "buftype") == "prompt" then
-    return false
-  end
-  local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-  return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
-local feedkey = function(key, mode)
-  vim.api.nvim_feedkeys(vim.api.nvim_replace_termcodes(key, true, true, true), mode, true)
-end
-
--- cmp config
--- If you want insert `(` after select function or method item
 local types = require('cmp.types')
+
 local WIDE_HEIGHT = 40
+
 local t = function(str)
   return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
+
 local check_back_space = function()
   local line, col = unpack(vim.api.nvim_win_get_cursor(0))
   return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
+
 local cmp = require('cmp')
 cmp.setup {
   completion = {
@@ -106,20 +96,9 @@ cmp.setup {
     { name = 'nvim_lua'}
   }
 }
+
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({ map_char = { tex = "" } }))
 
-
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
-
-
-
--- require'lspconfig'.pyright.setup {
---   capabilities = capabilities,
--- }
--- ADD OTHERS LATER
--- require"lspconfig" {
---     capabilities = capabilities,
--- }
-
