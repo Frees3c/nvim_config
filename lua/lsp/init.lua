@@ -110,7 +110,7 @@ function _G.bufferActiveLSP()
 end
 
 lspconfig.clangd.setup {
-    cmd = {DATA_PATH .. "/lspinstall/cpp/clangd/bin/clangd"},
+    cmd = {DATA_PATH .. "/lsp_servers/clangd/clangd"},
     on_attach = on_attach,
     handlers = {
         ["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -119,7 +119,7 @@ lspconfig.clangd.setup {
                 virtual_text = true,
                 signs = true,
                 underline = true,
-                update_in_insert = true
+                update_in_insert = false
             }
         )
     }
@@ -127,6 +127,7 @@ lspconfig.clangd.setup {
 
 -- https://github.com/golang/tools/tree/master/gopls
 lspconfig.gopls.setup {
+    cmd = {DATA_PATH .. "/lsp_servers/go/gopls"},
     on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
         on_attach(client)
@@ -150,20 +151,27 @@ lspconfig.tsserver.setup {
 }
 
 -- https://github.com/iamcco/vim-language-server
-lspconfig.vimls.setup {on_attach = on_attach}
+lspconfig.vimls.setup {
+  on_attach = on_attach,
+  cmd = {DATA_PATH .. "/lsp_servers/vim/node_modules/vim-language-server/bin/build-docs.js"},
+}
 
 -- https://github.com/vscode-langservers/vscode-json-languageserver
 lspconfig.jsonls.setup {
+    cmd = {DATA_PATH .. "/lsp_servers/jsonls/node_modules/vscode-langservers-extracted/bin/vscode-json-language-server"},
     on_attach = on_attach,
     -- cmd = {
-    --     DATA_PATH .. "/lspinstall/json/vscode-json/json-language-features/server/dist/node/jsonServerMain.js",
+    --     DATA_PATH .. "/lsp_servers/json/vscode-json/json-language-features/server/dist/node/jsonServerMain.js",
     --     "--stdio"
     -- }
-    cmd = {"vscode-json-languageserver", "--stdio"}
+    -- cmd = {"vscode-json-languageserver", "--stdio"}
 }
 
 -- https://github.com/redhat-developer/yaml-language-server
-lspconfig.yamlls.setup {on_attach = on_attach}
+lspconfig.yamlls.setup {
+  cmd = {DATA_PATH .. "/lsp_servers/yaml/node_modules/yaml-language-server/bin/yaml-language-server"},
+  on_attach = on_attach
+}
 
 -- https://github.com/joe-re/sql-language-server
 lspconfig.sqlls.setup {on_attach = on_attach}
@@ -172,13 +180,21 @@ lspconfig.sqlls.setup {on_attach = on_attach}
 lspconfig.cssls.setup {on_attach = on_attach}
 
 -- https://github.com/vscode-langservers/vscode-html-languageserver-bin
-lspconfig.html.setup {on_attach = on_attach}
+lspconfig.html.setup {
+  cmd = {DATA_PATH .. "/lsp_servers/html/node_modules/vscode-langservers-extracted/bin/vscode-html-language-server"},
+  on_attach = on_attach
+}
 
 -- https://github.com/bash-lsp/bash-language-server
-lspconfig.bashls.setup {on_attach = on_attach}
+lspconfig.bashls.setup {
+  on_attach = on_attach,
+ }
 
 -- https://github.com/rcjsuen/dockerfile-language-server-nodejs
-lspconfig.dockerls.setup {on_attach = on_attach}
+lspconfig.dockerls.setup {
+  on_attach = on_attach,
+  cmd = {DATA_PATH .. "/lsp_servers/dockerfile/node_modules/dockerfile-language-server-nodejs/bin/docker-langserver"},
+}
 
 -- npm install -g intelephense
 lspconfig.intelephense.setup {on_attach = on_attach}
@@ -202,7 +218,7 @@ lspconfig.terraformls.setup {
 -- Texlab not attaching to buffer...... why?!
 --
 lspconfig.texlab.setup {
-    cmd = {DATA_PATH .. "/lspinstall/latex/texlab"},
+    cmd = {DATA_PATH .. "/lsp_servers/latex/texlab"},
     on_attach = on_attach,
     filetypes = {"tex", "bib"}
 }
@@ -225,6 +241,7 @@ local markdownlint = require "efm/markdownlint"
 
 -- https://github.com/mattn/efm-langserver
 lspconfig.efm.setup {
+    cmd = {DATA_PATH .. "/lsp_servers/efm/efm-langserver"},
     on_attach = on_attach,
     init_options = {documentFormatting = true},
     filetypes = {

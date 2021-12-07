@@ -14,6 +14,8 @@ local feedkey = function(key, mode)
 end
 
 -- cmp config
+-- If you want insert `(` after select function or method item
+local cmp_autopairs = require('nvim-autopairs.completion.cmp')
 local types = require('cmp.types')
 local WIDE_HEIGHT = 40
 local cmp = require('cmp')
@@ -44,6 +46,7 @@ cmp.setup {
     min_length = 0, -- allow for `from package import _` in Python
 
   -- ... Your other configuration ...
+    cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } })),
 
     mapping = {
       -- other mappings
@@ -96,6 +99,8 @@ cmp.setup {
 
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+
+
 
 -- require'lspconfig'.pyright.setup {
 --   capabilities = capabilities,

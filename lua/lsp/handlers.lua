@@ -13,16 +13,16 @@ vim.lsp.handlers["textDocument/formatting"] = function(err, _, result, _, bufnr)
     end
 end
 
-vim.lsp.handlers["textDocument/publishDiagnostics"] = function(...)
-    vim.lsp.with(
-        vim.lsp.diagnostic.on_publish_diagnostics,
-        {
-            underline = true,
-            update_in_insert = false
-        }
-    )(...)
-    pcall(vim.lsp.diagnostic.set_loclist, {open_loclist = false})
-end
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = function(...)
+--     vim.lsp.with(
+--         vim.lsp.diagnostic.on_publish_diagnostics,
+--         {
+--             underline = true,
+--             update_in_insert = false
+--         }
+--     )(...)
+--     pcall(vim.lsp.diagnostic.set_loclist, {open_loclist = false})
+-- end
 
 vim.lsp.handlers["textDocument/hover"] =
     vim.lsp.with(

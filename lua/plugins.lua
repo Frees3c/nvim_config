@@ -72,7 +72,10 @@ return require("packer").startup(
         use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
         -- Coloring
-        use "Pocco81/Catppuccino.nvim"
+        -- use "Pocco81/Catppuccino.nvim"
+        use { "catppuccin/nvim",
+        as = "catppuccin"
+      }
         use "norcalli/nvim-colorizer.lua"
         use "tjdevries/colorbuddy.nvim"
       	use 'glepnir/zephyr-nvim'

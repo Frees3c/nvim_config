@@ -3,7 +3,7 @@ require('lualine').setup {
     icons_enabled = true,
     -- theme = 'molokai',
     -- theme = 'codedark',
-    theme = 'auto',
+    theme = 'catppuccin',
     component_separators = {'', ''},
     section_separators = {'', ''},
     disabled_filetypes = {}

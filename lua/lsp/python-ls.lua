@@ -1,6 +1,6 @@
 -- npm i -g pyright
 require'lspconfig'.pyright.setup {
-    cmd = {DATA_PATH .. "/lspinstall/python/node_modules/.bin/pyright-langserver", "--stdio"},
+    cmd = {DATA_PATH .. "/lsp_servers/python/node_modules/.bin/pyright-langserver", "--stdio"},
     root_dir = function()
         return vim.loop.cwd()
     end,
@@ -11,7 +11,7 @@ require'lspconfig'.pyright.setup {
             virtual_text = true,
             signs = true,
             underline = true,
-            update_in_insert = true
+            update_in_insert = false
         })
     },
 	 settings = {
@@ -24,4 +24,3 @@ require'lspconfig'.pyright.setup {
       }
     }
 }
-
