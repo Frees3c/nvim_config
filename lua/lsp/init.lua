@@ -60,10 +60,22 @@ M.symbol_kind_colors = {
     Snippet = "green"
 }
 
-vim.fn.sign_define("LspDiagnosticsSignError", {text = "", numhl = "LspDiagnosticsDefaultError"})
-vim.fn.sign_define("LspDiagnosticsSignWarning", {text = "", numhl = "LspDiagnosticsDefaultWarning"})
-vim.fn.sign_define("LspDiagnosticsSignInformation", {text = "", numhl = "LspDiagnosticsDefaultInformation"})
-vim.fn.sign_define("LspDiagnosticsSignHint", {text = "", numhl = "LspDiagnosticsDefaultHint"})
+vim.fn.sign_define(
+  'DiagnosticSignError',
+  { text = '', texthl = 'LspDiagnosticsDefaultError' }
+)
+vim.fn.sign_define(
+  'DiagnosticSignWarn',
+  { text = '', texthl = 'LspDiagnosticsDefaultWarning' }
+)
+vim.fn.sign_define(
+  'DiagnosticSignInfo',
+  { text = '', texthl = 'LspDiagnosticsDefaultInformation' }
+)
+vim.fn.sign_define(
+  'DiagnosticSignHint',
+  { text = '', texthl = 'LspDiagnosticsDefaultHint' }
+)
 
 local on_attach = function(client)
   if client.resolved_capabilities.document_formatting then
