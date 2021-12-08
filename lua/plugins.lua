@@ -34,6 +34,7 @@ return require("packer").startup(
         use "jose-elias-alvarez/nvim-lsp-ts-utils"
         use "Shatur/neovim-session-manager"
         use "lukas-reineke/indent-blankline.nvim"
+        use "windwp/nvim-autopairs"
 
         -- Auto completion
         use "hrsh7th/nvim-cmp"
@@ -58,6 +59,7 @@ return require("packer").startup(
         use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
         use "nvim-treesitter/playground"
         use "p00f/nvim-ts-rainbow"
+        use "windwp/nvim-ts-autotag"
         use "JoosepAlviste/nvim-ts-context-commentstring"
 
         -- Telescope
@@ -67,15 +69,12 @@ return require("packer").startup(
         use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
 
         -- Coloring
-        -- use "Pocco81/Catppuccino.nvim"
         use { "catppuccin/nvim",
         as = "catppuccin"
       }
         use "norcalli/nvim-colorizer.lua"
         use "tjdevries/colorbuddy.nvim"
       	use 'glepnir/zephyr-nvim'
-        use 'marko-cerovac/material.nvim'
-    		use 'ray-x/aurora'
         use 'tiagovla/tokyodark.nvim'
 		-- use 'DilanGMB/nebulous.nvim'
 
@@ -86,7 +85,6 @@ return require("packer").startup(
         use "kevinhwang91/rnvimr"
 
         -- Bufferline
-        -- use 'romgrk/barbar.nvim'
         use {"akinsho/nvim-bufferline.lua", requires = "kyazdani42/nvim-web-devicons"} -- maybe replace with barbar
 
         -- Remame like vscode
@@ -100,15 +98,11 @@ return require("packer").startup(
         use "tversteeg/registers.nvim"
         use "kdav5758/TrueZen.nvim"
         use "folke/which-key.nvim"
-        -- use "glepnir/dashboard-nvim"
-        use "windwp/nvim-autopairs"
         use "ellisonleao/glow.nvim"
         use {
             'hoob3rt/lualine.nvim',
               requires = {'kyazdani42/nvim-web-devicons', opt = true}
             }
-        -- use "glepnir/galaxyline.nvim"
         use {"iamcco/markdown-preview.nvim", run = "cd app && npm install"}
     end
 )
-
