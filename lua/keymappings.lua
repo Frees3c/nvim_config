@@ -116,9 +116,9 @@ key_mapper('v', '<leader>rn',  '<cmd>lua require("renamer").rename()<cr>')
 key_mapper('n', '<leader>ss',   ':SaveSession<CR>')
 key_mapper('n', '<leader>fs',   ':Telescope sessions<CR>')
 
--- FTerm
-key_mapper('n', '<leader>t',   '<CMD>lua require("FTerm").toggle()<CR>')
-key_mapper('t', '<leader>t',   '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
+-- -- FTerm
+-- key_mapper('n', '<leader>t',   '<CMD>lua require("FTerm").toggle()<CR>')
+-- key_mapper('t', '<leader>t',   '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
 
 -- LazyGit
 key_mapper('n', '<leader>lg',  ':LazyGit<CR>')
@@ -142,12 +142,17 @@ key_mapper('n', '<leader>fgw', ':Telescope grep_string<cr>')
 --
 -- lspsaga
 key_mapper("n",  'gh',         ':lua require(\'lspsaga.hover\').render_hover_doc()<CR>')
-key_mapper('n',  'ca',         ':Lspsaga code_action<CR>')
+key_mapper('n',  '<leader>ca', ':Lspsaga code_action<CR>')
+key_mapper('v',  '<leader>ca', ':<C-U>Lspsaga range_code_action<CR>')
 key_mapper('n',  'K',          ':Lspsaga hover_doc<CR>')
+key_mapper('n',  'gr',         ':Lspsaga rename<CR>')     -- rename
+key_mapper('n',  'gd',         ':Lspsaga preview_definition<CR>')
 key_mapper('n',  '<C-p>',      ':Lspsaga diagnostic_jump_prev<CR>')
 key_mapper('n',  '<C-n>',      ':Lspsaga diagnostic_jump_next<CR>')
 key_mapper('n',  '<C-f>',      '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>')    -- scroll down hover doc
 key_mapper('n',  '<C-b>',      '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>')   -- scroll up hover doc
+key_mapper('n',  '<leader>t',  ':Lspsaga open_floaterm<CR>')
+key_mapper('t',  '<leader>t',  '<C-\\><C-n>:Lspsaga close_floaterm<CR>')
 vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()')
 
 -- Toggle Markdown Preview

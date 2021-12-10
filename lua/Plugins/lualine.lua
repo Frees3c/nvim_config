@@ -3,7 +3,7 @@ require('lualine').setup {
     icons_enabled = true,
     -- theme = 'molokai',
     -- theme = 'codedark',
-    theme = 'catppuccin',
+    theme = 'auto',
     component_separators = {'', ''},
     section_separators = {'', ''},
     disabled_filetypes = {}
@@ -11,9 +11,9 @@ require('lualine').setup {
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch', 'diff'},
-    lualine_c = {'filename','lsp_progress'},
+    lualine_c = {'filename'},
     lualine_x = {
-      {'diagnostics', sources = {'nvim_diagnostic'}},
+            {"diagnostics", sources = {"nvim_lsp"}},
             'filetype',
             'encoding'
     },
