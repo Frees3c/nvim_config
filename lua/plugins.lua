@@ -87,6 +87,13 @@ return require("packer").startup(
         -- Bufferline
         use {"akinsho/nvim-bufferline.lua", requires = "kyazdani42/nvim-web-devicons"} -- maybe replace with barbar
 
+        -- Lualine
+        use {
+          'hoob3rt/lualine.nvim',
+          requires = {'kyazdani42/nvim-web-devicons', opt = true}
+        }
+        use 'arkav/lualine-lsp-progress'
+
         -- Remame like vscode
         use {
           'filipdutescu/renamer.nvim',
@@ -99,10 +106,6 @@ return require("packer").startup(
         use "kdav5758/TrueZen.nvim"
         use "folke/which-key.nvim"
         use "ellisonleao/glow.nvim"
-        use {
-            'hoob3rt/lualine.nvim',
-              requires = {'kyazdani42/nvim-web-devicons', opt = true}
-            }
         use {"iamcco/markdown-preview.nvim", run = "cd app && npm install"}
     end
 )
