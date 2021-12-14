@@ -7,4 +7,7 @@ require('utils').create_augroups({
         {'InsertEnter,WinLeave', '*', 'set nocursorline'},
         -- Automatically close Vim if the quickfix window is the only one open
         {'WinEnter', '*', [[if winnr('$') == 1 && &buftype == 'quickfix' | q | endif]]},
-    }})
+        -- Restore cursor position when opening file
+        {'BufRead', '*', [[call setpos(".", getpos("'\""))]]},
+    };
+  })
