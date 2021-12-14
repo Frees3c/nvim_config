@@ -208,6 +208,22 @@ lspconfig.dockerls.setup {
   cmd = {DATA_PATH .. "/lsp_servers/dockerfile/node_modules/dockerfile-language-server-nodejs/bin/docker-langserver"},
 }
 
+lspconfig.rust_analyzer.setup {
+  on_attach = on_attach,
+  root_dir= function()
+        return vim.loop.cwd()
+    end,
+  cmd = {DATA_PATH .. "/lsp_servers/rust/rust-analyzer"},
+  settings = {
+      ["rust-analyzer"] = {
+        checkOnSave = {
+          enable = true,
+          allFeatures = true,
+          }
+        }
+      }
+    }
+
 -- npm install -g intelephense
 lspconfig.intelephense.setup {on_attach = on_attach}
 
@@ -250,6 +266,7 @@ local terraform = require "efm/terraform"
 local misspell = require "efm/misspell"
 local pandoc = require "efm/pandoc"
 local markdownlint = require "efm/markdownlint"
+-- local rustfm = require "efm/rustfm"
 
 -- https://github.com/mattn/efm-langserver
 lspconfig.efm.setup {
@@ -267,7 +284,8 @@ lspconfig.efm.setup {
         "css",
         "json",
         "yaml",
-        "markdown"
+        "markdown",
+        "rust"
     },
     settings = {
         -- rootMarkers = {".git/"},
@@ -288,6 +306,7 @@ lspconfig.efm.setup {
             scss = {prettier},
             css = {prettier},
             markdown = {pandoc, markdownlint},
+            -- rust = {rustfm},
             sh = {shellcheck},
             tf = {terraform}
         }
