@@ -10,7 +10,13 @@ require("telescope").setup {
       override_file_sorter = true,     -- override the file sorter
       case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
                                        -- the default case_mode is "smart_case"
-    }
+    },
+    packer = {
+			theme = "ivy",
+			-- layout_config = {
+			-- 	height = .5
+			-- }
+		}
   },
     defaults = {
         vimgrep_arguments = {"rg", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case"},
@@ -73,3 +79,4 @@ require("telescope").setup {
 }
 require("telescope").load_extension("fzf")
 require("telescope").load_extension('sessions')
+require("telescope").load_extension("packer")

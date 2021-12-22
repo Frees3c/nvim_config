@@ -294,7 +294,7 @@ lspconfig.efm.setup {
             vim = {vint},
             lua = {luafmt},
             go = {golint, goimports},
-            python = {black, flake8},
+            python = {black},
             -- python = {flake8},
             typescript = {prettier, eslint},
             javascript = {prettier, eslint},

@@ -139,6 +139,7 @@ key_mapper('n', '<leader>fq',  ':Telescope quickfix<CR>')
 key_mapper('n', '<leader>fx',  ':Telescope git_status<cr>')
 key_mapper('n', '<leader>fc',  ':Telescope git_commits<cr>')
 key_mapper('n', '<leader>fgw', ':Telescope grep_string<cr>')
+key_mapper('n', '<leader>fp',  ':Telescope packer<CR>')
 --
 -- lspsaga
 key_mapper("n",  'gh',         ':lua require(\'lspsaga.hover\').render_hover_doc()<CR>')
