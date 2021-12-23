@@ -8,8 +8,7 @@
 
 ## Install
 
-**Install packer**:
-[Packer.nvim](https://github.com/wbthomason/packer.nvim)
+**Install [Packer.nvim](https://github.com/wbthomason/packer.nvim)**
 
 To get started, first clone this repository to somewhere on your
 packpath, e.g.:
@@ -25,10 +24,10 @@ Install a supported language server, tab completion is supported:
 
 ``` bash
 :LspInstall <Language Server>
-```
 
-Languages used in this config :
-`python, lua, diagnostics, bash, json, html, yaml, vim, css, php, ruby,latex`
+# Languages used in this config 
+:LspInstall pyright, tsserver, gopls, rust_analyzer, lua, diagnostics, bash, json, html, yamlls, vim, ltex, css, php, ruby, latex, clangd, dockerls
+```
 
 ## Install efm-langserver
 
@@ -42,8 +41,7 @@ Languages used in this config :
 
 ``` bash
 pip3 install --user flake8
-pip3 install --user yapf
-pip3 install --user autopep8
+pip3 install --user black
 ```
 
 ### Lua
@@ -52,17 +50,16 @@ pip3 install --user autopep8
 
 ### Yaml, Json, Javascript, HTML, CSS
 
-`npm install -g typescript typescript-language-server`
-`npm i -g eslint_d prettier`
+`npm install -g typescript typescript-language-server eslint_d prettier`
 
 ### Markdown
 
 ``` bash
+apt/pacman -S pandoc
 npm install -g markdownlint-cli
 # for mac os :
 brew install markdownlint-cli
 
-pandoc
 ```
 
 ### PHP
@@ -75,14 +72,8 @@ pandoc
 
 ## Screenshots
 
-**Dashboard.nvim**:
-[![Dashboard](Screenshots/dashboard.png)](Screenshots/dashboard.png)
-
 **Telescope.nvim**:
 [![Telescope](Screenshots/telescope.png)](Screenshots/telescope.png)
-
-**SnipRun.nvim**:
-[![SnipRun](Screenshots/SnipRun_float.png)](Screenshots/SnipRun_float.png)
 
 **Neovim**:
 [![screen-shot](Screenshots/screenshot.png)](Screenshots/screenshot.png)
