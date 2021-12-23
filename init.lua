@@ -19,7 +19,6 @@ require("autocmds")
 require("dbg")
 require("treesitter")
 
-
 -- Plugins
 require("Plugins.cmp")
 require("Plugins.telescope")
@@ -38,4 +37,4 @@ require("Plugins.renamer")
 
 -- LSP
 require("lsp.lua-lsp")
-require("lsp.python-ls")
+-- require("lsp.python-ls")

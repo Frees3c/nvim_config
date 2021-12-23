@@ -4,31 +4,19 @@ local lspconfig = require "lspconfig"
 local utils = require "utils"
 local M = {}
 
-vim.fn.sign_define(
-  'DiagnosticSignError',
-  { text = '', texthl = 'LspDiagnosticsDefaultError' }
-)
-vim.fn.sign_define(
-  'DiagnosticSignWarn',
-  { text = '', texthl = 'LspDiagnosticsDefaultWarning' }
-)
-vim.fn.sign_define(
-  'DiagnosticSignInfo',
-  { text = '', texthl = 'LspDiagnosticsDefaultInformation' }
-)
-vim.fn.sign_define(
-  'DiagnosticSignHint',
-  { text = '', texthl = 'LspDiagnosticsDefaultHint' }
-)
+vim.fn.sign_define("DiagnosticSignError", {text = "", texthl = "LspDiagnosticsDefaultError"})
+vim.fn.sign_define("DiagnosticSignWarn", {text = "", texthl = "LspDiagnosticsDefaultWarning"})
+vim.fn.sign_define("DiagnosticSignInfo", {text = "", texthl = "LspDiagnosticsDefaultInformation"})
+vim.fn.sign_define("DiagnosticSignHint", {text = "", texthl = "LspDiagnosticsDefaultHint"})
 
 local on_attach = function(client)
-  if client.resolved_capabilities.document_formatting then
-    vim.cmd [[augroup Format]]
-    vim.cmd [[autocmd! * <buffer>]]
-    -- vim.cmd [[autocmd BufWritePost <buffer> lua require'lsp.formatting'.format()]]
-    vim.cmd [[autocmd bufwritepre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-    vim.cmd [[augroup END]]
-  end
+    if client.resolved_capabilities.document_formatting then
+        vim.cmd [[augroup Format]]
+        vim.cmd [[autocmd! * <buffer>]]
+        -- vim.cmd [[autocmd BufWritePost <buffer> lua require'lsp.formatting'.format()]]
+        vim.cmd [[autocmd bufwritepre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+        vim.cmd [[augroup END]]
+    end
     -- if client.resolved_capabilities.goto_definition then
     --     utils.map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {buffer = true})
     -- end
@@ -108,14 +96,14 @@ lspconfig.tsserver.setup {
 
 -- https://github.com/iamcco/vim-language-server
 lspconfig.vimls.setup {
-  on_attach = on_attach,
-  cmd = {DATA_PATH .. "/lsp_servers/vim/node_modules/vim-language-server/bin/build-docs.js"},
+    on_attach = on_attach,
+    cmd = {DATA_PATH .. "/lsp_servers/vim/node_modules/vim-language-server/bin/build-docs.js"}
 }
 
 -- https://github.com/vscode-langservers/vscode-json-languageserver
 lspconfig.jsonls.setup {
     cmd = {DATA_PATH .. "/lsp_servers/jsonls/node_modules/vscode-langservers-extracted/bin/vscode-json-language-server"},
-    on_attach = on_attach,
+    on_attach = on_attach
     -- cmd = {
     --     DATA_PATH .. "/lsp_servers/json/vscode-json/json-language-features/server/dist/node/jsonServerMain.js",
     --     "--stdio"
@@ -123,10 +111,20 @@ lspconfig.jsonls.setup {
     -- cmd = {"vscode-json-languageserver", "--stdio"}
 }
 
+lspconfig.pylsp.setup {
+    on_attach = on_attach,
+    cmd = {"pylsp"},
+    filetypes = {"python"},
+    root_dir = function()
+        return vim.loop.cwd()
+    end,
+    single_file_support = true
+}
+
 -- https://github.com/redhat-developer/yaml-language-server
 lspconfig.yamlls.setup {
-  cmd = {DATA_PATH .. "/lsp_servers/yaml/node_modules/yaml-language-server/bin/yaml-language-server"},
-  on_attach = on_attach
+    cmd = {DATA_PATH .. "/lsp_servers/yaml/node_modules/yaml-language-server/bin/yaml-language-server"},
+    on_attach = on_attach
 }
 
 -- https://github.com/joe-re/sql-language-server
@@ -137,36 +135,50 @@ lspconfig.cssls.setup {on_attach = on_attach}
 
 -- https://github.com/vscode-langservers/vscode-html-languageserver-bin
 lspconfig.html.setup {
-  cmd = {DATA_PATH .. "/lsp_servers/html/node_modules/vscode-langservers-extracted/bin/vscode-html-language-server"},
-  on_attach = on_attach
+    cmd = {DATA_PATH .. "/lsp_servers/html/node_modules/vscode-langservers-extracted/bin/vscode-html-language-server"},
+    on_attach = on_attach
 }
 
 -- https://github.com/bash-lsp/bash-language-server
 lspconfig.bashls.setup {
-  on_attach = on_attach,
- }
+    on_attach = on_attach
+}
 
 -- https://github.com/rcjsuen/dockerfile-language-server-nodejs
 lspconfig.dockerls.setup {
-  on_attach = on_attach,
-  cmd = {DATA_PATH .. "/lsp_servers/dockerfile/node_modules/dockerfile-language-server-nodejs/bin/docker-langserver"},
+    on_attach = on_attach,
+    cmd = {DATA_PATH .. "/lsp_servers/dockerfile/node_modules/dockerfile-language-server-nodejs/bin/docker-langserver"}
 }
 
 lspconfig.rust_analyzer.setup {
-  on_attach = on_attach,
-  root_dir= function()
+    on_attach = on_attach,
+    root_dir = function()
         return vim.loop.cwd()
     end,
-  cmd = {DATA_PATH .. "/lsp_servers/rust/rust-analyzer"},
-  settings = {
-      ["rust-analyzer"] = {
-        checkOnSave = {
-          enable = true,
-          allFeatures = true,
-          }
+    cmd = {DATA_PATH .. "/lsp_servers/rust/rust-analyzer"},
+    settings = {
+        ["rust-analyzer"] = {
+            checkOnSave = {
+                enable = true,
+                allFeatures = true
+            }
         }
-      }
     }
+}
+
+lspconfig.ltex.setup {
+    cmd = {DATA_PATH .. "/lsp_servers/ltex/ltex-ls"},
+    filetypes = {"markdown"},
+    -- get_language_id = function(_, filetype)
+    --     local language_id = language_id_mapping[filetype]
+    --     if language_id then
+    --         return language_id
+    --     else
+    --         return filetype
+    --     end
+    -- end,
+    single_file_support = true
+}
 
 -- npm install -g intelephense
 lspconfig.intelephense.setup {on_attach = on_attach}
@@ -248,7 +260,7 @@ lspconfig.efm.setup {
             html = {prettier},
             scss = {prettier},
             css = {prettier},
-            markdown = {pandoc, markdownlint},
+            markdown = {markdownlint},
             -- rust = {rustfm},
             sh = {shellcheck},
             tf = {terraform}
