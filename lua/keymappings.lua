@@ -46,6 +46,24 @@ key_mapper('n', '<c-u>',      'viwUi<ESC>')
 key_mapper('n', '<C-h>',      '<C-w>h')
 key_mapper('n', '<C-l>',      '<C-w>l')
 
+key_mapper('n', 'gD',         '<cmd>lua vim.lsp.buf.declaration()<CR>')
+key_mapper('n', 'gd',         '<cmd>lua vim.lsp.buf.definition()<CR>')
+key_mapper('n', 'K',          '<cmd>lua vim.lsp.buf.hover()<CR>')
+key_mapper('n', 'gi',         '<cmd>lua vim.lsp.buf.implementation()<CR>')
+key_mapper('n', '<C-k>',      '<cmd>lua vim.lsp.buf.signature_help()<CR>')
+key_mapper('n', '<space>wa',  '<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>')
+key_mapper('n', '<space>wr',  '<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>')
+key_mapper('n', '<space>wl',  '<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>')
+key_mapper('n', '<space>D',   '<cmd>lua vim.lsp.buf.type_definition()<CR>')
+-- key_mapper('n', 'rn',         '<cmd>lua vim.lsp.buf.rename()<CR>')
+key_mapper('n', '<space>ca',  '<cmd>lua vim.lsp.buf.code_action()<CR>')
+key_mapper('n', 'gr',         '<cmd>lua vim.lsp.buf.references()<CR>')
+key_mapper('n', '<space>e',   '<cmd>lua vim.diagnostic.open_float()<CR>')
+key_mapper('n', '[d',         '<cmd>lua vim.diagnostic.goto_prev()<CR>')
+key_mapper('n', ']d',         '<cmd>lua vim.diagnostic.goto_next()<CR>')
+key_mapper('n', '<space>q',   '<cmd>lua vim.diagnostic.setloclist()<CR>')
+key_mapper('n', 'F',          '<cmd>lua vim.lsp.buf.formatting()<CR>')
+
 -- Tab to switch buffer
 -- key_mapper('n', '<TAB>',      ':bnext<CR>')
 -- key_mapper('n', '<S-TAB>',    ':bprevious<CR>')
@@ -140,21 +158,6 @@ key_mapper('n', '<leader>fx',  ':Telescope git_status<cr>')
 key_mapper('n', '<leader>fc',  ':Telescope git_commits<cr>')
 key_mapper('n', '<leader>fgw', ':Telescope grep_string<cr>')
 key_mapper('n', '<leader>fp',  ':Telescope packer<CR>')
---
--- lspsaga
-key_mapper("n",  'gh',         ':lua require(\'lspsaga.hover\').render_hover_doc()<CR>')
-key_mapper('n',  '<leader>ca', ':Lspsaga code_action<CR>')
-key_mapper('v',  '<leader>ca', ':<C-U>Lspsaga range_code_action<CR>')
-key_mapper('n',  'K',          ':Lspsaga hover_doc<CR>')
-key_mapper('n',  'gr',         ':Lspsaga rename<CR>')     -- rename
-key_mapper('n',  'gd',         ':Lspsaga preview_definition<CR>')
-key_mapper('n',  '<C-p>',      ':Lspsaga diagnostic_jump_prev<CR>')
-key_mapper('n',  '<C-n>',      ':Lspsaga diagnostic_jump_next<CR>')
-key_mapper('n',  '<C-f>',      '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(1)<CR>')    -- scroll down hover doc
-key_mapper('n',  '<C-b>',      '<cmd>lua require(\'lspsaga.action\').smart_scroll_with_saga(-1)<CR>')   -- scroll up hover doc
-key_mapper('n',  '<leader>t',  ':Lspsaga open_floaterm<CR>')
-key_mapper('t',  '<leader>t',  '<C-\\><C-n>:Lspsaga close_floaterm<CR>')
-vim.cmd('command! -nargs=0 LspVirtualTextToggle lua require("lsp/virtual_text").toggle()')
 
 -- Toggle Markdown Preview
 key_mapper('n', '<leader>md',  ':MarkdownPreviewToggle<CR>')

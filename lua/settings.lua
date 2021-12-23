@@ -13,6 +13,7 @@ local opt = vim.opt
 opt.autoindent = true
 opt.autoread = true
 opt.autowrite = true
+opt.autowriteall = true
 opt.background = "dark"
 opt.backup = false
 opt.clipboard = { 'unnamed', 'unnamedplus'}

@@ -13,9 +13,9 @@ require("telescope").setup {
     },
     packer = {
 			theme = "ivy",
-			-- layout_config = {
-			-- 	height = .5
-			-- }
+			layout_config = {
+				height = .5
+			}
 		}
   },
     defaults = {
@@ -79,4 +79,4 @@ require("telescope").setup {
 }
 require("telescope").load_extension("fzf")
 require("telescope").load_extension('sessions')
-require("telescope").load_extension("packer")
+require("telescope").load_extension ("packer")

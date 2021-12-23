@@ -4,62 +4,6 @@ local lspconfig = require "lspconfig"
 local utils = require "utils"
 local M = {}
 
-vim.lsp.protocol.CompletionItemKind = {
-    " [text]",
-    " [method]",
-    " [function]",
-    " [constructor]",
-    "ﰠ [field]",
-    " [variable]",
-    " [class]",
-    " [interface]",
-    " [module]",
-    " [property]",
-    " [unit]",
-    " [value]",
-    " [enum]",
-    " [key]",
-    " [snippet]",
-    " [color]",
-    " [file]",
-    " [reference]",
-    " [folder]",
-    " [enum member]",
-    " [constant]",
-    " [struct]",
-    "⌘ [event]",
-    " [operator]",
-    "♛ [type]"
-}
-
-M.symbol_kind_icons = {
-    Function = "",
-    Method = "",
-    Variable = "",
-    Constant = "",
-    Interface = "",
-    Field = "ﰠ",
-    Property = "",
-    Struct = "",
-    Enum = "",
-    Class = "",
-    Snippet = " "
-}
-
-M.symbol_kind_colors = {
-    Function = "green",
-    Method = "green",
-    Variable = "blue",
-    Constant = "red",
-    Interface = "cyan",
-    Field = "blue",
-    Property = "blue",
-    Struct = "cyan",
-    Enum = "yellow",
-    Class = "red",
-    Snippet = "green"
-}
-
 vim.fn.sign_define(
   'DiagnosticSignError',
   { text = '', texthl = 'LspDiagnosticsDefaultError' }
@@ -85,12 +29,12 @@ local on_attach = function(client)
     vim.cmd [[autocmd bufwritepre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
     vim.cmd [[augroup END]]
   end
-    if client.resolved_capabilities.goto_definition then
-        utils.map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {buffer = true})
-    end
-    if client.resolved_capabilities.hover then
-        utils.map("n", "<CR>", "<cmd>lua vim.lsp.buf.hover()<CR>", {buffer = true})
-    end
+    -- if client.resolved_capabilities.goto_definition then
+    --     utils.map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {buffer = true})
+    -- end
+    -- if client.resolved_capabilities.hover then
+    --     utils.map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {buffer = true})
+    -- end
     if client.resolved_capabilities.find_references then
         utils.map(
             "n",
@@ -274,7 +218,7 @@ lspconfig.efm.setup {
     on_attach = on_attach,
     init_options = {documentFormatting = true},
     filetypes = {
-        -- "lua",
+        "lua",
         -- "tex",
         "python",
         "javascriptreact",
@@ -295,7 +239,6 @@ lspconfig.efm.setup {
             lua = {luafmt},
             go = {golint, goimports},
             python = {black},
-            -- python = {flake8},
             typescript = {prettier, eslint},
             javascript = {prettier, eslint},
             typescriptreact = {prettier, eslint},
