@@ -37,4 +37,4 @@ require("Plugins.renamer")
 
 -- LSP
 require("lsp.lua-lsp")
--- require("lsp.python-ls")
+require("lsp.python-ls")

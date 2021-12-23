@@ -40,11 +40,12 @@ key_mapper("n", "<c-u>", "viwUi<ESC>")
 key_mapper("n", "<C-h>", "<C-w>h")
 key_mapper("n", "<C-l>", "<C-w>l")
 
+-- lspconfig
 key_mapper("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
 key_mapper("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
 key_mapper("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
 key_mapper("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-key_mapper("n", "<C-k>", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+key_mapper("n", "gh", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
 key_mapper("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
 key_mapper("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
 key_mapper("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")

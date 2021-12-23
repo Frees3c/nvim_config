@@ -111,15 +111,15 @@ lspconfig.jsonls.setup {
     -- cmd = {"vscode-json-languageserver", "--stdio"}
 }
 
-lspconfig.pylsp.setup {
-    on_attach = on_attach,
-    cmd = {"pylsp"},
-    filetypes = {"python"},
-    root_dir = function()
-        return vim.loop.cwd()
-    end,
-    single_file_support = true
-}
+-- lspconfig.pylsp.setup {
+--     on_attach = on_attach,
+--     cmd = {"pylsp"},
+--     filetypes = {"python"},
+--     root_dir = function()
+--         return vim.loop.cwd()
+--     end,
+--     single_file_support = true
+-- }
 
 -- https://github.com/redhat-developer/yaml-language-server
 lspconfig.yamlls.setup {
