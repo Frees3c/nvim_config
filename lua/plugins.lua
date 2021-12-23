@@ -18,7 +18,6 @@ if fn.empty(fn.glob(install_path)) > 0 then
     execute "packadd packer.nvim"
 end
 
-
 return require("packer").startup(
     function(use)
         -- Packer can manage itself as an optional plugin
@@ -29,7 +28,7 @@ return require("packer").startup(
         use "williamboman/nvim-lsp-installer"
         use "kyazdani42/nvim-tree.lua"
         use "kyazdani42/nvim-web-devicons"
-        use "glepnir/lspsaga.nvim"
+        -- use "glepnir/lspsaga.nvim"
         use "terrortylor/nvim-comment"
         use "jose-elias-alvarez/nvim-lsp-ts-utils"
         use "Shatur/neovim-session-manager"
@@ -66,18 +65,19 @@ return require("packer").startup(
         use "nvim-lua/telescope.nvim"
         use "nvim-lua/popup.nvim"
         use "nvim-lua/plenary.nvim"
-        use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+        use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
         use "nvim-telescope/telescope-packer.nvim"
 
         -- Coloring
-        use { "catppuccin/nvim",
-        as = "catppuccin"
-      }
+        use {
+            "catppuccin/nvim",
+            as = "catppuccin"
+        }
         use "norcalli/nvim-colorizer.lua"
         use "tjdevries/colorbuddy.nvim"
-      	use 'glepnir/zephyr-nvim'
-        use 'tiagovla/tokyodark.nvim'
-		-- use 'DilanGMB/nebulous.nvim'
+        use "glepnir/zephyr-nvim"
+        use "tiagovla/tokyodark.nvim"
+        use "DilanGMB/nebulous.nvim"
 
         -- Git
         use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}}
@@ -90,22 +90,22 @@ return require("packer").startup(
 
         -- Lualine
         use {
-          'hoob3rt/lualine.nvim',
-          requires = {'kyazdani42/nvim-web-devicons', opt = true}
+            "hoob3rt/lualine.nvim",
+            requires = {"kyazdani42/nvim-web-devicons", opt = true}
         }
-        use 'arkav/lualine-lsp-progress'
+        use "arkav/lualine-lsp-progress"
 
         -- Remame like vscode
         use {
-          'filipdutescu/renamer.nvim',
-          branch = 'master',
-          requires = { {'nvim-lua/plenary.nvim'} }
+            "filipdutescu/renamer.nvim",
+            branch = "master",
+            requires = {{"nvim-lua/plenary.nvim"}}
         }
         -- general
         use "tversteeg/registers.nvim"
+        use "numToStr/FTerm.nvim"
         use "kdav5758/TrueZen.nvim"
         use "folke/which-key.nvim"
-        use "ellisonleao/glow.nvim"
         use {"iamcco/markdown-preview.nvim", run = "cd app && npm install"}
     end
 )
