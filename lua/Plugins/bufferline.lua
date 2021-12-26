@@ -1,19 +1,8 @@
-require'bufferline'.setup{}
-local key_mapper = function(mode, key, result)
-  vim.api.nvim_set_keymap(
-    mode,
-    key,
-    result,
-    {noremap = true, silent = true}
-  )
-end
-
-
+require "bufferline".setup {}
 
 -- These commands will navigate through buffers in order regardless of which mode you are using
-key_mapper('n', '<TAB>', ':BufferLineCycleNext<CR>')
-key_mapper('n', '<S-TAB>', ':BufferLineCyclePrev<CR>')
-
+-- key_mapper('n', '<TAB>', ':BufferLineCycleNext<CR>')
+-- key_mapper('n', '<S-TAB>', ':BufferLineCyclePrev<CR>')
 
 -- These commands will move the current buffer backwards or forwards in the bufferline
 -- nnoremap <silent><mymap> :BufferLineMoveNext<CR>

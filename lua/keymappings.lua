@@ -40,25 +40,6 @@ key_mapper("n", "<c-u>", "viwUi<ESC>")
 key_mapper("n", "<C-h>", "<C-w>h")
 key_mapper("n", "<C-l>", "<C-w>l")
 
--- lspconfig
-key_mapper("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
-key_mapper("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
-key_mapper("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
-key_mapper("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
-key_mapper("n", "gh", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
-key_mapper("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
-key_mapper("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
-key_mapper("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
-key_mapper("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
--- key_mapper('n', 'rn',         '<cmd>lua vim.lsp.buf.rename()<CR>')
-key_mapper("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
-key_mapper("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-key_mapper("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
-key_mapper("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
-key_mapper("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
-key_mapper("n", "<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
-key_mapper("n", "F", "<cmd>lua vim.lsp.buf.formatting()<CR>")
-
 -- Tab to switch buffer
 -- key_mapper('n', '<TAB>',      ':bnext<CR>')
 -- key_mapper('n', '<S-TAB>',    ':bprevious<CR>')
@@ -119,6 +100,10 @@ key_mapper("n", "<Leader>ps", ":PackerSync <CR>")
 key_mapper("n", "<Leader>pi", ":PackerInstall <CR>")
 key_mapper("n", "<leader>pu", ":PackerUpdate <CR>")
 
+-- Bufferline
+key_mapper("n", "<TAB>", ":BufferLineCycleNext<CR>")
+key_mapper("n", "<S-TAB>", ":BufferLineCyclePrev<CR>")
+
 -- Rename.nvim
 key_mapper("i", "<F2>", '<cmd>lua require("renamer").rename()<cr>')
 key_mapper("n", "<leader>rn", '<cmd>lua require("renamer").rename()<cr>')
@@ -134,6 +119,25 @@ key_mapper("t", "<leader>t", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>'
 
 -- LazyGit
 key_mapper("n", "<leader>lg", ":LazyGit<CR>")
+
+-- lspconfig
+key_mapper("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
+key_mapper("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>")
+key_mapper("n", "K", "<cmd>lua vim.lsp.buf.hover()<CR>")
+key_mapper("n", "gi", "<cmd>lua vim.lsp.buf.implementation()<CR>")
+key_mapper("n", "gh", "<cmd>lua vim.lsp.buf.signature_help()<CR>")
+key_mapper("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
+key_mapper("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
+key_mapper("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
+key_mapper("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
+-- key_mapper('n', 'rn',         '<cmd>lua vim.lsp.buf.rename()<CR>')
+key_mapper("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
+key_mapper("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
+key_mapper("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
+key_mapper("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
+key_mapper("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
+key_mapper("n", "<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
+key_mapper("n", "F", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 
 -- Nvim Tree Toggle
 key_mapper("n", "<leader>e", ":NvimTreeToggle<CR>")
