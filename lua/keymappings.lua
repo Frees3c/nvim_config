@@ -104,6 +104,10 @@ key_mapper("n", "<leader>pu", ":PackerUpdate <CR>")
 key_mapper("n", "<TAB>", ":BufferLineCycleNext<CR>")
 key_mapper("n", "<S-TAB>", ":BufferLineCyclePrev<CR>")
 
+-- comment
+key_mapper("n", "<leader>/", ":CommentToggle<CR>")
+key_mapper("v", "<leader>/", ":CommentToggle<CR>")
+
 -- Rename.nvim
 key_mapper("i", "<F2>", '<cmd>lua require("renamer").rename()<cr>')
 key_mapper("n", "<leader>rn", '<cmd>lua require("renamer").rename()<cr>')
