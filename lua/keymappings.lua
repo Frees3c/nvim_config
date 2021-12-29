@@ -152,7 +152,7 @@ key_mapper("n", "<leader>-", ":RnvimrToggle<CR>")
 -- Telescope
 key_mapper("n", "<leader>f", ":Telescope find_files<CR>")
 key_mapper("n", "<leader>fl", ":Telescope live_grep<CR>")
-key_mapper("n", "<leader>fb", ":Telescope buffers<CR>")
+key_mapper("n", "<leader>fb", ":Telescope buffers theme=dropdown<CR>")
 key_mapper("n", "<leader>fh", ":Telescope help_tags<CR>")
 key_mapper("n", "<leader>fg", ":Telescope git_files<CR>")
 key_mapper("n", "<leader>fq", ":Telescope quickfix<CR>")
@@ -160,6 +160,7 @@ key_mapper("n", "<leader>fx", ":Telescope git_status<cr>")
 key_mapper("n", "<leader>fc", ":Telescope git_commits<cr>")
 key_mapper("n", "<leader>fgw", ":Telescope grep_string<cr>")
 key_mapper("n", "<leader>fp", ":Telescope packer<CR>")
+key_mapper("n", "<leader>fr", ":Telescope oldfiles theme=get_ivy<CR>")
 
 -- Toggle Markdown Preview
 key_mapper("n", "<leader>md", ":MarkdownPreviewToggle<CR>")
@@ -188,3 +189,6 @@ key_mapper("n", "<leader>df", '<cmd>lua require"telescope".extensions.dap.frames
 
 -- TrueZen
 key_mapper("n", "<leader>tz", ":TZAtaraxis <CR>")
+
+-- Which-Key
+key_mapper("n", "<C-h>", ":WhichKey<CR>")

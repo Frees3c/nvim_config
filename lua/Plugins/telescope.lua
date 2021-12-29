@@ -3,21 +3,21 @@ local actions = require("telescope.actions")
 ------------------------------
 -- '--color=never',
 require("telescope").setup {
-  extensions = {
-    fzf = {
-      fuzzy = true,                    -- false will only do exact matching
-      override_generic_sorter = true,  -- override the generic sorter
-      override_file_sorter = true,     -- override the file sorter
-      case_mode = "smart_case",        -- or "ignore_case" or "respect_case"
-                                       -- the default case_mode is "smart_case"
+    extensions = {
+        fzf = {
+            fuzzy = true, -- false will only do exact matching
+            override_generic_sorter = true, -- override the generic sorter
+            override_file_sorter = true, -- override the file sorter
+            case_mode = "smart_case" -- or "ignore_case" or "respect_case"
+            -- the default case_mode is "smart_case"
+        },
+        packer = {
+            theme = "ivy",
+            layout_config = {
+                height = .5
+            }
+        }
     },
-    packer = {
-			theme = "ivy",
-			layout_config = {
-				height = .5
-			}
-		}
-  },
     defaults = {
         vimgrep_arguments = {"rg", "--no-heading", "--with-filename", "--line-number", "--column", "--smart-case"},
         prompt_prefix = " 🔎 ",
@@ -33,12 +33,12 @@ require("telescope").setup {
             prompt_position = "bottom",
             preview_cutoff = 120,
             horizontal = {mirror = false},
-            vertical = {mirror = false}
+            vertical = {mirror = true}
         },
         file_sorter = require("telescope.sorters").get_fzy_sorter,
-        file_ignore_patterns = {"go/", "node_modules/", ".gem"},
+        file_ignore_patterns = {"go/", "node_modules/", ".gem", "Pictures"},
         generic_sorter = require("telescope.sorters").get_fzy_sorter,
-        path_display = { "full" },
+        path_display = {"full"},
         winblend = 0,
         border = {},
         borderchars = {"─", "│", "─", "│", "╭", "╮", "╯", "╰"},
@@ -78,5 +78,5 @@ require("telescope").setup {
     }
 }
 require("telescope").load_extension("fzf")
-require("telescope").load_extension('sessions')
-require("telescope").load_extension ("packer")
+require("telescope").load_extension("sessions")
+require("telescope").load_extension("packer")
