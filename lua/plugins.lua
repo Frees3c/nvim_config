@@ -74,10 +74,11 @@ return require("packer").startup(
             as = "catppuccin"
         }
         use "norcalli/nvim-colorizer.lua"
-        use "tjdevries/colorbuddy.nvim"
-        use "glepnir/zephyr-nvim"
-        use "tiagovla/tokyodark.nvim"
-        use "DilanGMB/nebulous.nvim"
+        -- use "rebelot/kanagawa.nvim"
+        -- use "tjdevries/colorbuddy.nvim"
+        -- use "glepnir/zephyr-nvim"
+        -- use "tiagovla/tokyodark.nvim"
+        -- use "DilanGMB/nebulous.nvim"
 
         -- Git
         use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}}
