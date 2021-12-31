@@ -103,6 +103,7 @@ return require("packer").startup(
             requires = {{"nvim-lua/plenary.nvim"}}
         }
         -- general
+        use "ThePrimeagen/refactoring.nvim"
         use "tversteeg/registers.nvim"
         use "numToStr/FTerm.nvim"
         use "kdav5758/TrueZen.nvim"

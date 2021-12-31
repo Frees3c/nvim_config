@@ -161,6 +161,7 @@ key_mapper("n", "<leader>fc", ":Telescope git_commits<cr>")
 key_mapper("n", "<leader>fgw", ":Telescope grep_string<cr>")
 key_mapper("n", "<leader>fp", ":Telescope packer<CR>")
 key_mapper("n", "<leader>fr", ":Telescope oldfiles theme=get_ivy<CR>")
+key_mapper("v", "<leader>rr", "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>")
 
 -- Toggle Markdown Preview
 key_mapper("n", "<leader>md", ":MarkdownPreviewToggle<CR>")

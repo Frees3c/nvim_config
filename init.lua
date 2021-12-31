@@ -22,6 +22,7 @@ require("treesitter")
 -- Plugins
 require("Plugins.cmp")
 require("Plugins.telescope")
+require("Plugins.refactoring")
 require("Plugins.nvimtree")
 require("Plugins.lualine")
 require("Plugins.autopairs")
