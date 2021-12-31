@@ -28,10 +28,8 @@ return require("packer").startup(
         use "williamboman/nvim-lsp-installer"
         use "kyazdani42/nvim-tree.lua"
         use "kyazdani42/nvim-web-devicons"
-        -- use "glepnir/lspsaga.nvim"
         use "terrortylor/nvim-comment"
         use "jose-elias-alvarez/nvim-lsp-ts-utils"
-        use "Shatur/neovim-session-manager"
         use "lukas-reineke/indent-blankline.nvim"
         use "windwp/nvim-autopairs"
 
@@ -48,11 +46,6 @@ return require("packer").startup(
 
         -- Snippets
         use "rafamadriz/friendly-snippets"
-
-        -- Debugging
-        use "mfussenegger/nvim-dap"
-        use "mfussenegger/nvim-dap-python"
-        use "nvim-telescope/telescope-dap.nvim"
 
         -- Treesitter
         use {"nvim-treesitter/nvim-treesitter", run = ":TSUpdate"}
@@ -74,17 +67,12 @@ return require("packer").startup(
             as = "catppuccin"
         }
         use "norcalli/nvim-colorizer.lua"
-        -- use "rebelot/kanagawa.nvim"
         -- use "tjdevries/colorbuddy.nvim"
-        -- use "glepnir/zephyr-nvim"
         -- use "tiagovla/tokyodark.nvim"
         -- use "DilanGMB/nebulous.nvim"
 
         -- Git
         use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}}
-
-        -- Ranger
-        use "kevinhwang91/rnvimr"
 
         -- Bufferline
         use {"akinsho/nvim-bufferline.lua", requires = "kyazdani42/nvim-web-devicons"} -- maybe replace with barbar
@@ -94,7 +82,6 @@ return require("packer").startup(
             "hoob3rt/lualine.nvim",
             requires = {"kyazdani42/nvim-web-devicons", opt = true}
         }
-        use "arkav/lualine-lsp-progress"
 
         -- Remame like vscode
         use {

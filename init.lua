@@ -16,7 +16,6 @@ require("lsp")
 require("keymappings")
 require("colorscheme")
 require("autocmds")
-require("dbg")
 require("treesitter")
 
 -- Plugins
@@ -32,7 +31,6 @@ require("Plugins.comment")
 require("Plugins.colorizer")
 require("Plugins.gitsigns")
 require("Plugins.truezen")
-require("Plugins.sessions")
 require("Plugins.renamer")
 
 -- LSP
