@@ -1,33 +1,34 @@
-require('lualine').setup {
-  options = {
-    icons_enabled = true,
-    -- theme = 'molokai',
-    -- theme = 'codedark',
-    theme = 'auto',
-    component_separators = {'', ''},
-    section_separators = {'', ''},
-    disabled_filetypes = {}
-  },
-  sections = {
-    lualine_a = {'mode'},
-    lualine_b = {'branch', 'diff'},
-    lualine_c = {'filename'},
-    lualine_x = {
-      {'diagnostics', sources = {'nvim_diagnostic'}},
-            'filetype',
-            'encoding'
+require("lualine").setup {
+    options = {
+        icons_enabled = true,
+        theme = "catppuccin",
+        -- theme = 'auto',
+        -- section_separators = {left = "", right = ""},
+        -- component_separators = {left = "", right = ""},
+        section_separators = {left = "", right = ""},
+        component_separators = {left = "", right = ""},
+        disabled_filetypes = {"packer"}
     },
-    lualine_z = {'location'},
-    lualine_y = {'progress'}
-  },
-  inactive_sections = {
-    lualine_a = {},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  tabline = {},
-  extensions = {'nvim-tree', 'quickfix'}
+    sections = {
+        lualine_a = {"mode"},
+        lualine_b = {"branch", "diff"},
+        lualine_c = {"filename"},
+        lualine_x = {
+            {"diagnostics", sources = {"nvim_diagnostic"}},
+            "filetype",
+            "encoding"
+        },
+        lualine_y = {"fileformat"},
+        lualine_z = {"progress", "location"}
+    },
+    inactive_sections = {
+        lualine_a = {},
+        lualine_b = {},
+        lualine_c = {"filename"},
+        lualine_x = {"location"},
+        lualine_y = {},
+        lualine_z = {}
+    },
+    tabline = {},
+    extensions = {"nvim-tree", "quickfix", "toggleterm"}
 }
