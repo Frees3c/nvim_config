@@ -35,6 +35,9 @@ return require("packer").startup(
         use "lukas-reineke/indent-blankline.nvim"
         use "windwp/nvim-autopairs"
 
+        -- Plugin dev
+        use "folke/lua-dev.nvim"
+
         -- Auto completion
         use "hrsh7th/nvim-cmp"
         use "hrsh7th/cmp-nvim-lsp"
