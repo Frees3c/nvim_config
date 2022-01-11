@@ -239,7 +239,7 @@ lspconfig.efm.setup {
         "html",
         "css",
         "json",
-        "yaml",
+        -- "yaml",
         "markdown",
         "rust"
     },
@@ -255,7 +255,7 @@ lspconfig.efm.setup {
             javascript = {prettier, eslint},
             typescriptreact = {prettier, eslint},
             javascriptreact = {prettier, eslint},
-            yaml = {prettier},
+            -- yaml = {prettier},
             json = {prettier},
             html = {prettier},
             scss = {prettier},
