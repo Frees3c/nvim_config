@@ -78,5 +78,5 @@ require("telescope").setup {
     }
 }
 require("telescope").load_extension("fzf")
-require("telescope").load_extension("sessions")
+-- require("telescope").load_extension("sessions")
 require("telescope").load_extension("packer")
