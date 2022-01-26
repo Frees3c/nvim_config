@@ -3,7 +3,6 @@ local nvimtree = require("nvim-tree")
 local view = require("nvim-tree.view")
 _G.NvimTreeConfig = {}
 
-vim.g.nvim_tree_hide_dotfiles = 1 -- 0 by default, this option hides files and folders starting with a dot `.`
 vim.g.nvim_tree_quit_on_open = 1
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_auto_ignore_ft = {"startify", "dashboard"} --empty by default, don't auto open tree on specific filetypes.
