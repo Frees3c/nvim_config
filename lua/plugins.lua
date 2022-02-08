@@ -34,6 +34,7 @@ return require("packer").startup(
         use "Shatur/neovim-session-manager"
         use "lukas-reineke/indent-blankline.nvim"
         use "windwp/nvim-autopairs"
+        use "kevinhwang91/nvim-bqf"
 
         -- Plugin dev
         use "folke/lua-dev.nvim"
