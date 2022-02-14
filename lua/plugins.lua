@@ -78,6 +78,7 @@ return require("packer").startup(
             as = "catppuccin"
         }
         use "norcalli/nvim-colorizer.lua"
+        use "navarasu/onedark.nvim"
         -- use "rebelot/kanagawa.nvim"
         -- use "tjdevries/colorbuddy.nvim"
         -- use "glepnir/zephyr-nvim"

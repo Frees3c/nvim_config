@@ -7,7 +7,6 @@
 --
 -- ###################################################################################
 
-
 -- Nightbuddy Colorscheme
 -- Style options for Nebulous: twilight, night, midnight
 -- vim.g.nb_style = "twilight"
@@ -17,5 +16,10 @@
 -- vim.cmd[[colorscheme monokai_soda]]
 
 -- vim.cmd[[colorscheme aurora]]
-vim.cmd[[colorscheme catppuccin]]
+-- vim.cmd[[colorscheme catppuccin]]
 -- vim.cmd[[colorscheme soft_manilo]]
+require("onedark").setup {
+    style = "darker"
+}
+
+require("onedark").load()
