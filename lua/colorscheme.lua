@@ -19,7 +19,9 @@
 -- vim.cmd[[colorscheme catppuccin]]
 -- vim.cmd[[colorscheme soft_manilo]]
 require("onedark").setup {
-    style = "darker"
+    style = "darker",
+    highlight_linenumber = true,
+    variable_style = "italic"
 }
 
 require("onedark").load()
