@@ -50,21 +50,21 @@ packer.init {
 }
 return packer.startup(
     function(use)
-        -- Packer can manage itself as an optional plugin
-        use "wbthomason/packer.nvim"
-
+        use "wbthomason/packer.nvim" -- Packer can manage itself as an optional plugin
         -- Quality of life improvements
-        use "neovim/nvim-lspconfig"
-        use "williamboman/nvim-lsp-installer"
+        use "nvim-lua/plenary.nvim"
+        use "nvim-lua/popup.nvim"
+        use "windwp/nvim-autopairs"
         use "kyazdani42/nvim-tree.lua"
         use "kyazdani42/nvim-web-devicons"
-        -- use "glepnir/lspsaga.nvim"
         use "terrortylor/nvim-comment"
-        use "jose-elias-alvarez/nvim-lsp-ts-utils"
         use "Shatur/neovim-session-manager"
         use "lukas-reineke/indent-blankline.nvim"
-        use "windwp/nvim-autopairs"
-        use "kevinhwang91/nvim-bqf"
+        use "tversteeg/registers.nvim"
+
+        -- LSP
+        use "neovim/nvim-lspconfig"
+        use "williamboman/nvim-lsp-installer"
 
         -- Plugin dev
         use "folke/lua-dev.nvim"
@@ -95,15 +95,14 @@ return packer.startup(
         use "p00f/nvim-ts-rainbow"
         use "windwp/nvim-ts-autotag"
         use "JoosepAlviste/nvim-ts-context-commentstring"
+        use "jose-elias-alvarez/nvim-lsp-ts-utils"
 
         -- Telescope
         use "nvim-lua/telescope.nvim"
-        use "nvim-lua/popup.nvim"
-        use "nvim-lua/plenary.nvim"
         use {"nvim-telescope/telescope-fzf-native.nvim", run = "make"}
         use "nvim-telescope/telescope-packer.nvim"
 
-        -- Coloring
+        -- Colours
         use {
             "catppuccin/nvim",
             as = "catppuccin"
@@ -117,34 +116,30 @@ return packer.startup(
         -- use "DilanGMB/nebulous.nvim"
 
         -- Git
-        use {"lewis6991/gitsigns.nvim", requires = {"nvim-lua/plenary.nvim"}}
+        use "lewis6991/gitsigns.nvim"
 
         -- Ranger
         use "kevinhwang91/rnvimr"
 
         -- Bufferline
-        use {"akinsho/nvim-bufferline.lua", requires = "kyazdani42/nvim-web-devicons"} -- maybe replace with barbar
+        use "akinsho/nvim-bufferline.lua"
+        -- maybe replace with barbar
 
         -- Lualine
-        use {
-            "hoob3rt/lualine.nvim",
-            requires = {"kyazdani42/nvim-web-devicons", opt = true}
-        }
+        use "hoob3rt/lualine.nvim"
         use "arkav/lualine-lsp-progress"
 
         -- Remame like vscode
         use {
             "filipdutescu/renamer.nvim",
-            branch = "master",
-            requires = {{"nvim-lua/plenary.nvim"}}
+            branch = "master"
         }
-        -- general
-        use "ThePrimeagen/refactoring.nvim"
-        use "tversteeg/registers.nvim"
         use "numToStr/FTerm.nvim"
         use "kdav5758/TrueZen.nvim"
         use "folke/which-key.nvim"
         use {"iamcco/markdown-preview.nvim", run = "cd app && npm install"}
+        -- Automatically set up your configuration after cloning packer.nvim
+        -- Put this at the end after all plugins
         if PACKER_BOOTSTRAP then
             require("packer").sync()
         end

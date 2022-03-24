@@ -135,7 +135,10 @@ lspconfig.cssls.setup {on_attach = on_attach}
 
 -- https://github.com/vscode-langservers/vscode-html-languageserver-bin
 lspconfig.html.setup {
-    cmd = {DATA_PATH .. "/lsp_servers/html/node_modules/vscode-langservers-extracted/bin/vscode-html-language-server"},
+    cmd = {
+        DATA_PATH .. "/lsp_servers/html/node_modules/vscode-langservers-extracted/bin/vscode-html-language-server",
+        "--stdio"
+    },
     on_attach = on_attach
 }
 
