@@ -3,7 +3,6 @@ local nvimtree = require("nvim-tree")
 local view = require("nvim-tree.view")
 _G.NvimTreeConfig = {}
 
-vim.g.nvim_tree_quit_on_open = 1
 vim.g.nvim_tree_indent_markers = 1
 vim.g.nvim_tree_auto_ignore_ft = {"startify", "dashboard"} --empty by default, don't auto open tree on specific filetypes.
 vim.g.nvim_tree_git_hl = 1
@@ -49,8 +48,8 @@ vim.g.nvim_tree_icons = {
 nvimtree.setup {
     disable_netrw = true,
     hijack_netrw = true,
-    auto_close = true,
     diagnostics_enable = true,
+    quit_on_open = 1,
     -- lsp_diagnostics = true,
     hijack_cursor = true,
     update_focused_file = {
