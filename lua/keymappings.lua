@@ -87,9 +87,15 @@ key_mapper("i", "[", "[<C-g>u")
 key_mapper("i", "kj", "<Esc>")
 key_mapper("i", "jk", "<Esc>")
 
--- Exec Python
-key_mapper("n", "<F5>", "<ESC>:!python % <CR>")
-key_mapper("i", "<F5>", "<ESC>:!python % <CR>")
+-- *************************************************************************************
+-- Python bits
+-- *************************************************************************************
+-- Run python code
+key_mapper("n", "<leader>rr", ":update<CR>:exec '!python3' shellescape(@%, 1)<CR>")
+-- debug python with pdb
+key_mapper("n", "<leader>rd", ":update<CR>:sp term://python3 -m pdb %<CR>")
+-- monitor python code with nodemon
+key_mapper("n", "<leader>rm", ":update<CR>:sp term://nodemon -e py %<CR>")
 
 -- *************************************************************************************
 -- Plugin Bindings

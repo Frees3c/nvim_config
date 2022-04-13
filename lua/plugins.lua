@@ -134,6 +134,13 @@ return packer.startup(
             "filipdutescu/renamer.nvim",
             branch = "master"
         }
+        use {
+            "pianocomposer321/yabs.nvim",
+            requires = {"nvim-lua/plenary.nvim"},
+            config = function()
+                require("Plugins.yabs").setup()
+            end
+        }
         use "numToStr/FTerm.nvim"
         use "kdav5758/TrueZen.nvim"
         use "folke/which-key.nvim"
