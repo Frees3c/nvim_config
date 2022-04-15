@@ -13,16 +13,17 @@ local on_attach = function(client)
     if client.resolved_capabilities.document_formatting then
         vim.cmd [[augroup Format]]
         vim.cmd [[autocmd! * <buffer>]]
-        -- vim.cmd [[autocmd BufWritePost <buffer> lua require'lsp.formatting'.format()]]
+        -- vim.cmd [[autocmd BufWritePre <buffer> lua require'lsp.formatting'.format()]]
         vim.cmd [[autocmd bufwritepre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
+        -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
         vim.cmd [[augroup END]]
     end
-    -- if client.resolved_capabilities.goto_definition then
-    --     utils.map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {buffer = true})
-    -- end
-    -- if client.resolved_capabilities.hover then
-    --     utils.map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {buffer = true})
-    -- end
+    if client.resolved_capabilities.goto_definition then
+        utils.map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {buffer = true})
+    end
+    if client.resolved_capabilities.hover then
+        utils.map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {buffer = true})
+    end
     if client.resolved_capabilities.find_references then
         utils.map(
             "n",

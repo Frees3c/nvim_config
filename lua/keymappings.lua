@@ -91,6 +91,7 @@ key_mapper("i", "jk", "<Esc>")
 -- Python bits
 -- *************************************************************************************
 -- Run python code
+key_mapper("i", "<F5>", "<ESC>:!python % <CR>")
 key_mapper("n", "<leader>rr", ":update<CR>:exec '!python3' shellescape(@%, 1)<CR>")
 -- debug python with pdb
 key_mapper("n", "<leader>rd", ":update<CR>:sp term://python3 -m pdb %<CR>")
