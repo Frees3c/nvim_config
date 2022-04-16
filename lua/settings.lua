@@ -62,7 +62,8 @@ opt.undofile = true
 opt.updatetime = 100 -- Trigger cursorhold faster
 opt.wrap = false -- wrap lines
 opt.writebackup = false
-
+vim.o.completeopt = "menu,menuone,noselect"
+vim.o.confirm = true
 -- Messages
 opt.shortmess =
     table.concat(
@@ -84,6 +85,17 @@ opt.shortmess =
     }
 )
 
+vim.g.floating_window_border = {"╭", "─", "╮", "│", "╯", "─", "╰", "│"}
+vim.g.floating_window_border_dark = {
+    {"╭", "FloatBorderDark"},
+    {"─", "FloatBorderDark"},
+    {"╮", "FloatBorderDark"},
+    {"│", "FloatBorderDark"},
+    {"╯", "FloatBorderDark"},
+    {"─", "FloatBorderDark"},
+    {"╰", "FloatBorderDark"},
+    {"│", "FloatBorderDark"}
+}
 -- Sessions
 vim.g.autoload_last_session = false
 
@@ -106,7 +118,5 @@ else
     vim.g.python3_host_prog = "/usr/bin/python"
 end
 
-
 DATA_PATH = vim.fn.stdpath("data")
-
 CACHE_PATH = vim.fn.stdpath("cache")

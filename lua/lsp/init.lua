@@ -1,5 +1,4 @@
 require "lsp.handlers"
--- require "lsp.formatting"
 local lspconfig = require "lspconfig"
 local utils = require "utils"
 local M = {}
@@ -74,17 +73,58 @@ lspconfig.clangd.setup {
 
 -- https://github.com/golang/tools/tree/master/gopls
 lspconfig.gopls.setup {
+    capabilities = capabilities,
     cmd = {DATA_PATH .. "/lsp_servers/go/gopls"},
     on_attach = function(client)
         client.resolved_capabilities.document_formatting = false
         on_attach(client)
-    end
+    end,
+    settings = {
+        gopls = {
+            usePlaceholders = true,
+            analyses = {
+                nilness = true,
+                shadow = true,
+                unusedparams = true,
+                unusewrites = true
+            }
+        }
+    }
 }
 
--- lspconfig.pyright.setup {on_attach = on_attach}
+require "lspconfig".pyright.setup {
+    capabilities = capabilities,
+    cmd = {DATA_PATH .. "/lsp_servers/python/node_modules/.bin/pyright-langserver", "--stdio"},
+    root_dir = function()
+        return vim.loop.cwd()
+    end,
+    on_attach = on_attach,
+    filetypes = {"python"},
+    handlers = {
+        ["textDocument/publishDiagnostics"] = vim.lsp.with(
+            vim.lsp.diagnostic.on_publish_diagnostics,
+            {
+                virtual_text = true,
+                signs = true,
+                underline = true,
+                update_in_insert = false
+            }
+        )
+    },
+    settings = {
+        python = {
+            analysis = {
+                typeCheckingMode = true,
+                autoSearchPaths = true,
+                useLibraryCodeForTypes = true
+            }
+        }
+    }
+}
 
 -- https://github.com/theia-ide/typescript-language-server
 lspconfig.tsserver.setup {
+    capabilities = capabilities,
     filetypes = {"javascript", "typescript", "typescriptreact"},
     -- Start tsserver on any JS/TS file, regardless of directory eg. package.json, .git
     root_dir = function()
@@ -113,6 +153,7 @@ lspconfig.vimls.setup {
 
 -- https://github.com/vscode-langservers/vscode-json-languageserver
 lspconfig.jsonls.setup {
+    capabilities = capabilities,
     cmd = {DATA_PATH .. "/lsp_servers/jsonls/node_modules/vscode-langservers-extracted/bin/vscode-json-language-server"},
     on_attach = on_attach
     -- cmd = {
@@ -134,6 +175,7 @@ lspconfig.jsonls.setup {
 
 -- https://github.com/redhat-developer/yaml-language-server
 lspconfig.yamlls.setup {
+    capabilities = capabilities,
     cmd = {DATA_PATH .. "/lsp_servers/yaml/node_modules/yaml-language-server/bin/yaml-language-server"},
     on_attach = on_attach
 }
@@ -146,6 +188,7 @@ lspconfig.cssls.setup {on_attach = on_attach}
 
 -- https://github.com/vscode-langservers/vscode-html-languageserver-bin
 lspconfig.html.setup {
+    capabilities = capabilities,
     cmd = {
         DATA_PATH .. "/lsp_servers/html/node_modules/vscode-langservers-extracted/bin/vscode-html-language-server",
         "--stdio"
@@ -160,11 +203,13 @@ lspconfig.bashls.setup {
 
 -- https://github.com/rcjsuen/dockerfile-language-server-nodejs
 lspconfig.dockerls.setup {
+    capabilities = capabilities,
     on_attach = on_attach,
     cmd = {DATA_PATH .. "/lsp_servers/dockerfile/node_modules/dockerfile-language-server-nodejs/bin/docker-langserver"}
 }
 
 lspconfig.rust_analyzer.setup {
+    capabilities = capabilities,
     on_attach = on_attach,
     root_dir = function()
         return vim.loop.cwd()
@@ -181,6 +226,7 @@ lspconfig.rust_analyzer.setup {
 }
 
 lspconfig.ltex.setup {
+    capabilities = capabilities,
     cmd = {DATA_PATH .. "/lsp_servers/ltex/ltex-ls"},
     filetypes = {"markdown"},
     -- get_language_id = function(_, filetype)
@@ -199,6 +245,7 @@ lspconfig.intelephense.setup {on_attach = on_attach}
 
 -- https://solargraph.org/
 lspconfig.solargraph.setup {
+    capabilities = capabilities,
     root_dir = function()
         return vim.loop.cwd()
     end,
@@ -207,15 +254,16 @@ lspconfig.solargraph.setup {
 
 -- https://github.com/hashicorp/terraform-ls
 lspconfig.terraformls.setup {
+    capabilities = capabilities,
     on_attach = on_attach,
     cmd = {"terraform-ls", "serve"},
     filetypes = {"tf"}
 }
-
 --
 -- Texlab not attaching to buffer...... why?!
 --
 lspconfig.texlab.setup {
+    capabilities = capabilities,
     cmd = {DATA_PATH .. "/lsp_servers/latex/texlab"},
     on_attach = on_attach,
     filetypes = {"tex", "bib"}

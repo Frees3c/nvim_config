@@ -70,16 +70,26 @@ return packer.startup(
         -- Plugin dev
         use "folke/lua-dev.nvim"
 
-        -- cmp plugins(autocompltetion)
-        use "hrsh7th/nvim-cmp"
-        use "hrsh7th/cmp-nvim-lsp"
-        use "hrsh7th/cmp-buffer"
-        use "hrsh7th/cmp-vsnip"
-        use "hrsh7th/cmp-path"
-        use "hrsh7th/cmp-emoji"
-        use "hrsh7th/cmp-cmdline"
-        use "hrsh7th/cmp-latex-symbols"
-        use "hrsh7th/cmp-nvim-lua"
+        -- nvim-cmp (completion plugins)
+        use {
+            "hrsh7th/nvim-cmp",
+            requires = {
+                {"andersevenrud/compe-tmux"},
+                {"hrsh7th/cmp-buffer"},
+                {"hrsh7th/cmp-path"},
+                {"hrsh7th/cmp-nvim-lua"},
+                {"hrsh7th/cmp-nvim-lsp"},
+                {"saadparwaiz1/cmp_luasnip"},
+                {"hrsh7th/cmp-cmdline"},
+                {"lukas-reineke/cmp-under-comparator"},
+                {"lukas-reineke/cmp-rg"},
+                {"octaltree/cmp-look"},
+                {"hrsh7th/cmp-latex-symbols"},
+                {"hrsh7th/cmp-vsnip"},
+                {"hrsh7th/cmp-emoji"}
+            },
+            config = "require 'Plugins.cmp'"
+        }
 
         -- Snippets
         use "hrsh7th/vim-vsnip"
