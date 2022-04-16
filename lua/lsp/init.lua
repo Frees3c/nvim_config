@@ -9,21 +9,20 @@ vim.fn.sign_define("DiagnosticSignWarn", {text = "", texthl = "LspDiagnostics
 vim.fn.sign_define("DiagnosticSignInfo", {text = "", texthl = "LspDiagnosticsDefaultInformation"})
 vim.fn.sign_define("DiagnosticSignHint", {text = "", texthl = "LspDiagnosticsDefaultHint"})
 
+local capabilities = require("cmp_nvim_lsp").update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
 local on_attach = function(client)
-    if client.resolved_capabilities.document_formatting then
-        vim.cmd [[augroup Format]]
-        vim.cmd [[autocmd! * <buffer>]]
-        -- vim.cmd [[autocmd BufWritePre <buffer> lua require'lsp.formatting'.format()]]
-        vim.cmd [[autocmd bufwritepre <buffer> lua vim.lsp.buf.formatting_seq_sync()]]
-        -- vim.cmd [[autocmd BufWritePre * lua vim.lsp.buf.formatting_sync()]]
-        vim.cmd [[augroup END]]
-    end
+    require("lsp-format").on_attach(client)
     if client.resolved_capabilities.goto_definition then
-        utils.map("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", {buffer = true})
+        utils.map("n", "<C-]>", "<cmd>lua vim.lsp.buf.definition()<CR>", {buffer = true})
+    end
+    if client.resolved_capabilities.implementation then
+        utils.map("n", "<Leader>&", "<cmd>lua vim.lsp.buf.implementation()<CR>", {buffer = true})
     end
     if client.resolved_capabilities.hover then
-        utils.map("n", "gh", "<cmd>lua vim.lsp.buf.hover()<CR>", {buffer = true})
+        utils.map("n", "<CR>", "<cmd>lua vim.lsp.buf.hover()<CR>", {buffer = true})
     end
+
     if client.resolved_capabilities.find_references then
         utils.map(
             "n",
@@ -34,6 +33,9 @@ local on_attach = function(client)
     end
     if client.resolved_capabilities.rename then
         utils.map("n", "<C-a>", "<cmd>lua require'lsp.rename'.rename()<CR>", {silent = true, buffer = true})
+    end
+    if client.resolved_capabilities.signature_help then
+        utils.map("n", "<Leader>s", "<cmd>lua vim.lsp.buf.signature_help()<CR>", {silent = true, buffer = true})
     end
 
     utils.map("n", "<Leader><CR>", "<cmd>lua require'lsp.diagnostics'.line_diagnostics()<CR>", {buffer = true})
@@ -96,10 +98,18 @@ lspconfig.tsserver.setup {
 }
 
 -- https://github.com/iamcco/vim-language-server
+
+-- https://github.com/iamcco/vim-language-server
 lspconfig.vimls.setup {
+    capabilities = capabilities,
     on_attach = on_attach,
     cmd = {DATA_PATH .. "/lsp_servers/vim/node_modules/vim-language-server/bin/build-docs.js"}
 }
+
+-- lspconfig.vimls.setup {
+--     capabilities = capabilities,
+--     on_attach = on_attach,
+-- }
 
 -- https://github.com/vscode-langservers/vscode-json-languageserver
 lspconfig.jsonls.setup {

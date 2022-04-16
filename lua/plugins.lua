@@ -61,6 +61,7 @@ return packer.startup(
         use "Shatur/neovim-session-manager"
         use "lukas-reineke/indent-blankline.nvim"
         use "tversteeg/registers.nvim"
+        use "lukas-reineke/lsp-format.nvim"
 
         -- LSP
         use "neovim/nvim-lspconfig"

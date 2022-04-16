@@ -16,21 +16,26 @@ end
 
 local cmp = require("cmp")
 cmp.setup {
+    preselect = cmp.PreselectMode.None,
     completion = {
-        completeopt = "menuone,noselect"
-        -- autocomplete = false,
+      keyword_length = 0,
+      autocomplete = false,
     },
+    -- completion = {
+    --     completeopt = "menuone,noselect"
+    --     -- autocomplete = false,
+    -- },
     snippet = {
         expand = function(args)
-            -- For `vsnip` user.
             vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` user.
         end
     },
     documentation = {
-        border = {"", "", "", " ", "", "", "", " "},
-        winhighlight = "NormalFloat:NormalFloat,FloatBorder:NormalFloat",
-        maxwidth = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
-        maxheight = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines))
+        border = vim.g.floating_window_border_dark,
+        -- border = {"", "", "", " ", "", "", "", " "},
+        -- winhighlight = "NormalFloat:NormalFloat,FloatBorder:NormalFloat",
+        -- maxwidth = math.floor((WIDE_HEIGHT * 2) * (vim.o.columns / (WIDE_HEIGHT * 2 * 16 / 9))),
+        -- maxheight = math.floor(WIDE_HEIGHT * (WIDE_HEIGHT / vim.o.lines))
     },
     confirmation = {
         default_behavior = types.cmp.ConfirmBehavior.Insert,
@@ -41,33 +46,57 @@ cmp.setup {
     min_length = 0, -- allow for `from package import _` in Python
     -- ... Your other configuration ...
 
-    mapping = {
-        ["<C-p>"] = cmp.mapping.select_prev_item(),
-        ["<C-n>"] = cmp.mapping.select_next_item(),
-        ["<Tab>"] = cmp.mapping(
-            function(fallback)
-                if cmp.visible() then
-                    vim.fn.feedkeys(t("<cr>"), "")
-                elseif vim.fn["vsnip#available"](1) == 1 then
-                    vim.fn.feedkeys(t("<Plug>(vsnip-expand-or-jump)"), "")
-                elseif check_back_space() then
-                    vim.fn.feedkeys(t("<tab>"), "n")
-                else
-                    fallback()
-                end
-            end,
-            {
-                "i",
-                "s"
-            }
-        ),
-        ["<CR>"] = cmp.mapping.confirm(
-            {
-                behavior = cmp.ConfirmBehavior.Replace,
-                select = true
-            }
-        )
-    },
+    
+     mapping = {
+        ["<C-d>"] = cmp.mapping.scroll_docs(-5),
+        ["<C-f>"] = cmp.mapping.scroll_docs(5),
+        ["<C-e>"] = cmp.mapping.close(),
+        ["<CR>"] = function(fallback)
+            if cmp.visible() then
+                return cmp.mapping.confirm {
+                    behavior = cmp.ConfirmBehavior.Insert,
+                    select = true,
+                }(fallback)
+            else
+                return fallback()
+            end
+        end,
+        ["<C-n>"] = function(fallback)
+            if cmp.visible() then
+                return cmp.mapping.select_next_item { behavior = cmp.SelectBehavior.Insert }(fallback)
+            else
+                return cmp.mapping.complete { reason = cmp.ContextReason.Auto }(fallback)
+            end
+        end,
+        ["<C-p>"] = cmp.mapping.select_prev_item { behavior = cmp.SelectBehavior.Insert },
+    },   
+    -- mapping = {
+    --     ["<C-p>"] = cmp.mapping.select_prev_item(),
+    --     ["<C-n>"] = cmp.mapping.select_next_item(),
+    --     ["<Tab>"] = cmp.mapping(
+    --         function(fallback)
+    --             if cmp.visible() then
+    --                 vim.fn.feedkeys(t("<cr>"), "")
+    --             elseif vim.fn["vsnip#available"](1) == 1 then
+    --                 vim.fn.feedkeys(t("<Plug>(vsnip-expand-or-jump)"), "")
+    --             elseif check_back_space() then
+    --                 vim.fn.feedkeys(t("<tab>"), "n")
+    --             else
+    --                 fallback()
+    --             end
+    --         end,
+    --         {
+    --             "i",
+    --             "s"
+    --         }
+    --     ),
+    --     ["<CR>"] = cmp.mapping.confirm(
+    --         {
+    --             behavior = cmp.ConfirmBehavior.Replace,
+    --             select = true
+    --         }
+    --     )
+    -- },
     formatting = {
         format = function(entry, vim_item)
             local icons = require("lsp.kind").icons
@@ -93,18 +122,18 @@ cmp.setup {
         end
     },
     sources = {
-        {name = "nvim_lsp"},
-        {name = "vsnip"},
-        {name = "buffer"},
-        {name = "path"},
-        {name = "emoji"},
-        {name = "nvim_lua"}
+        {name = "nvim_lsp", max_item_count = 20, priority_weight = 100},
+        {name = "vsnip", priority_weight = 80},
+        {name = "buffer", max_item_count = 5, priority_weight = 70},
+        {name = "path", priority_weight = 110},
+        {name = "emoji", priority_weight = 10},
+        {name = "nvim_lua", priority_weight = 90}
     }
 }
 
 local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done({map_char = {tex = ""}}))
 
-local capabilities = vim.lsp.protocol.make_client_capabilities()
+-- local capabilities = vim.lsp.protocol.make_client_capabilities()
 
-capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)
+-- capabilities = require("cmp_nvim_lsp").update_capabilities(capabilities)

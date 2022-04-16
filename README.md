@@ -3,6 +3,12 @@
 > WiP:
 >
 > TODO//
+
+``` lua
+-- Fix `keymappings.lua` to use key_mapper function iun utils.
+local utils = require "utils"
+utils.key_mapper(blah blah)
+```
 >
 > - ## Make a better README.md
 
