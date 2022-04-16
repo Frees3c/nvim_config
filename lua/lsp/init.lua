@@ -193,6 +193,12 @@ lspconfig.html.setup {
         DATA_PATH .. "/lsp_servers/html/node_modules/vscode-langservers-extracted/bin/vscode-html-language-server",
         "--stdio"
     },
+    configurationSection = {"html", "css", "javascript"},
+    embeddedLanguages = {
+        css = true,
+        javascript = true
+    },
+    provideFormatter = true,
     on_attach = on_attach
 }
 
@@ -273,6 +279,7 @@ local vint = require "efm/vint"
 local luafmt = require "efm/luafmt"
 local golint = require "efm/golint"
 local goimports = require "efm/goimports"
+local go_vet = require "efm/go_vet"
 local black = require "efm/black"
 local isort = require "efm/isort"
 local flake8 = require "efm/flake8"
@@ -288,44 +295,32 @@ local markdownlint = require "efm/markdownlint"
 
 -- https://github.com/mattn/efm-langserver
 lspconfig.efm.setup {
+    capabilities = capabilities,
     cmd = {DATA_PATH .. "/lsp_servers/efm/efm-langserver"},
     on_attach = on_attach,
     init_options = {documentFormatting = true},
-    filetypes = {
-        "lua",
-        -- "tex",
-        "python",
-        "javascriptreact",
-        "javascript",
-        "sh",
-        "html",
-        "css",
-        "json",
-        "yaml",
-        "markdown",
-        "rust"
-    },
+    root_dir = vim.loop.cwd,
     settings = {
         -- rootMarkers = {".git/"},
         languages = {
             ["="] = {misspell},
             vim = {vint},
             lua = {luafmt},
-            go = {golint, goimports},
+            go = {go_vet, golint, goimports},
             python = {black},
             typescript = {prettier, eslint},
             javascript = {prettier, eslint},
             typescriptreact = {prettier, eslint},
             javascriptreact = {prettier, eslint},
-            -- yaml = {prettier},
-            -- json = {jq},
+            yaml = {prettier},
+            json = {prettier},
             html = {prettier},
             scss = {prettier},
             css = {prettier},
-            markdown = {markdownlint},
+            markdown = {prettier, markdownlint},
             -- rust = {rustfm},
             sh = {shellcheck},
-            tf = {terraform}
+            terraform = {terraform}
         }
     }
 }

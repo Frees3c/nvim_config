@@ -99,18 +99,6 @@ vim.g.floating_window_border_dark = {
 -- Sessions
 vim.g.autoload_last_session = false
 
--- Markdown
-vim.g.markdown_fenced_languages = {
-    "vim",
-    "python",
-    "lua",
-    "bash=sh",
-    "javascript",
-    "typescript",
-    "yaml",
-    "json"
-}
-
 -- Python Path
 if vim.fn.has("mac") == 1 then
     vim.g.python3_host_prog = "/usr/local/bin/python3"

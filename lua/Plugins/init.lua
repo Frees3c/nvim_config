@@ -75,7 +75,10 @@ return packer.startup(
             config = "require 'Plugins.indent'"
         }
         use "tversteeg/registers.nvim"
-        use "lukas-reineke/lsp-format.nvim"
+        use {
+            "lukas-reineke/lsp-format.nvim",
+            config = "require 'Plugins.lsp-format'"
+        }
 
         -- LSP
         use "neovim/nvim-lspconfig"

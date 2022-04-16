@@ -20,7 +20,6 @@ require("dbg")
 require("treesitter")
 
 -- Plugins
--- require("plugins.cmp")
 require("Plugins.telescope")
 require("Plugins.nvimtree")
 require("Plugins.lualine")
@@ -33,4 +32,3 @@ require("Plugins.renamer")
 
 -- LSP
 require("lsp.lua-lsp")
--- require("lsp.python-ls")
