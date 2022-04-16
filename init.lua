@@ -11,7 +11,7 @@
 
 require("utils")
 require("settings")
-require("plugins")
+require("Plugins")
 require("lsp")
 require("keymappings")
 require("colorscheme")
@@ -20,18 +20,15 @@ require("dbg")
 require("treesitter")
 
 -- Plugins
-require("Plugins.cmp")
+-- require("plugins.cmp")
 require("Plugins.telescope")
 require("Plugins.nvimtree")
 require("Plugins.lualine")
-require("Plugins.autopairs")
 require("Plugins.bufferline")
-require("Plugins.indent")
 require("Plugins.comment")
 require("Plugins.colorizer")
 require("Plugins.gitsigns")
 require("Plugins.truezen")
-require("Plugins.sessions")
 require("Plugins.renamer")
 
 -- LSP

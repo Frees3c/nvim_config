@@ -54,12 +54,26 @@ return packer.startup(
         -- Quality of life improvements
         use "nvim-lua/plenary.nvim"
         use "nvim-lua/popup.nvim"
-        use "windwp/nvim-autopairs"
-        use "kyazdani42/nvim-tree.lua"
+        use {
+            "windwp/nvim-autopairs",
+            config = "require 'Plugins.autopairs'"
+        }
+        use {
+            "kyazdani42/nvim-tree.lua",
+            requires = {
+                "kyazdani42/nvim-web-devicons" -- optional, for file icon
+            }
+        }
         use "kyazdani42/nvim-web-devicons"
         use "terrortylor/nvim-comment"
-        use "Shatur/neovim-session-manager"
-        use "lukas-reineke/indent-blankline.nvim"
+        use {
+            "Shatur/neovim-session-manager",
+            config = "require 'Plugins.sessions'"
+        }
+        use {
+            "lukas-reineke/indent-blankline.nvim",
+            config = "require 'Plugins.indent'"
+        }
         use "tversteeg/registers.nvim"
         use "lukas-reineke/lsp-format.nvim"
 

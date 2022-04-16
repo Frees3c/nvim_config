@@ -9,6 +9,8 @@
 local utils = require "utils"
 utils.key_mapper(blah blah)
 ```
+
+> Finish moving plugins from `init.lua` to `Plugins/init.lua`
 >
 > - ## Make a better README.md
 
