@@ -39,10 +39,6 @@ key_mapper("n", "<c-u>", "viwUi<ESC>")
 key_mapper("n", "<C-h>", "<C-w>h")
 key_mapper("n", "<C-l>", "<C-w>l")
 
--- Tab to switch buffer
--- key_mapper('n', '<TAB>',      ':bnext<CR>')
--- key_mapper('n', '<S-TAB>',    ':bprevious<CR>')
-
 -- Kill buffer with leader bd
 key_mapper("n", "<leader>bd", ":bdelete<CR>")
 
@@ -66,7 +62,7 @@ key_mapper("i", "<c-l>", "<esc>la")
 key_mapper("n", "<leader>h", ":noh<CR>")
 
 -- insert new line above without enerting insert mode.
-key_mapper("n", "<leader>o", "moO<ESC> ")
+key_mapper("n", "<leader>o", "moO<ESC>k ")
 
 -- Better indentaion (tab)
 key_mapper("v", ">", ">gv")
@@ -83,16 +79,15 @@ key_mapper("n", "Y", "y$")
 key_mapper("x", "K", ":move '<-2<CR>gv-gv")
 key_mapper("x", "J", ":move '>+1<CR>gv-gv")
 
--- Undo break points:
-key_mapper("i", ",", ",<c-g>u")
-key_mapper("i", ".", ".<c-g>u")
-key_mapper("i", "?", "?<c-g>u")
-key_mapper("i", "!", "!<c-g>u")
-key_mapper("i", "[", "[<C-g>u")
+-- -- Undo break points:
+-- key_mapper("i", ",", ",<c-g>u")
+-- key_mapper("i", ".", ".<c-g>u")
+-- key_mapper("i", "?", "?<c-g>u")
+-- key_mapper("i", "!", "!<c-g>u")
+-- key_mapper("i", "[", "[<C-g>u")
 
--- jk as Escape key
+-- jj as Escape key
 key_mapper("i", "jj", "<Esc>")
-key_mapper("i", "jk", "<Esc>")
 
 -- *************************************************************************************
 -- Python bits
@@ -129,14 +124,11 @@ key_mapper("v", "<leader>rn", '<cmd>lua require("renamer").rename()<cr>')
 
 -- Sessions
 key_mapper("n", "<leader>ss", ":SaveSession<CR>")
-key_mapper("n", "<leader>fs", ":Telescope sessions<CR>")
+key_mapper("n", "<leader>fs", ":SearchSession<CR>")
 
 -- FTerm
 key_mapper("n", "<leader>t", '<CMD>lua require("FTerm").toggle()<CR>')
 key_mapper("t", "<leader>t", '<C-\\><C-n><CMD>lua require("FTerm").toggle()<CR>')
-
--- LazyGit
-key_mapper("n", "<leader>lg", ":LazyGit<CR>")
 
 -- lspconfig
 key_mapper("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>")
@@ -151,11 +143,12 @@ key_mapper("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
 -- key_mapper('n', 'rn',         '<cmd>lua vim.lsp.buf.rename()<CR>')
 key_mapper("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 key_mapper("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
-key_mapper("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
+-- key_mapper("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
 key_mapper("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 key_mapper("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 key_mapper("n", "<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
-key_mapper("n", "F", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+-- key_mapper("n", "F", "<cmd>lua vim.lsp.buf.formatting()<CR>")
+key_mapper("n", "F", ":Format<CR>")
 
 -- Nvim Tree Toggle
 key_mapper("n", "<leader>e", ":NvimTreeToggle<CR>")
