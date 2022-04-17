@@ -9,7 +9,7 @@
 -- ###################################################################################
 
 local key_mapper = function(mode, key, result)
-    vim.api.nvim_set_keymap(mode, key, result, {noremap = true, silent = true})
+  vim.api.nvim_set_keymap(mode, key, result, { noremap = true, silent = true })
 end
 
 -- ***********************************************************************************
@@ -23,13 +23,14 @@ vim.g.mapleader = " "
 key_mapper("n", "<c-e>", "3<c-e>")
 key_mapper("n", "<c-y>", "3<c-y>")
 
--- -- Encase selection in (), [], {}, "", ''
--- key_mapper('x',  '<Leader>(',  'xi()<Esc>P')
--- key_mapper('x',  '<Leader>"',  'xi""<Esc>P')
--- -- key_mapper('x',  '<leader>\'', 'xi\'\'<Esc>P') -- Figure out how to get this working.
--- key_mapper('x',  '<Leader>[',  'xi[]<Esc>P')
--- key_mapper('x',  '<Leader>{',  'xi{}<Esc>P')
---
+--whenever you're in parentheses, you can simple invoke dp or cp to wipe it's contents (same for brackets, but db or cb).
+key_mapper("o", "p", 'i"')
+key_mapper("o", "b", "i(|")
+
+--PAGEUP/PAGEDN ONLY HALF PAGE AT A TIME
+key_mapper("n", "<PageUp>", "<C-U>")
+key_mapper("n", "<PageDown>", "<C-D>")
+
 -- Change word to uppercase(ctrl+u) or lower(space+l)
 key_mapper("n", "<leader>l", "viwgui<ESC>")
 key_mapper("n", "<c-u>", "viwUi<ESC>")
@@ -54,6 +55,12 @@ key_mapper("n", "<leader>lf", ":luafile %<CR>")
 -- Move line up or down
 key_mapper("n", "<C-k>", ":m-2<cr>")
 key_mapper("n", "<C-j>", ":m+<cr>")
+
+-- DITCH THOSE ARROW KEYS --> MOVE UP AND DOWN IN INSERT MODE WITH HJKL BY SIMPLY HOLDING CONTROL
+key_mapper("i", "<c-j>", "<esc>ji")
+key_mapper("i", "<c-k>", "<esc>ki")
+key_mapper("i", "<c-h>", "<esc>i")
+key_mapper("i", "<c-l>", "<esc>la")
 
 -- Clear highlights
 key_mapper("n", "<leader>h", ":noh<CR>")
@@ -84,7 +91,7 @@ key_mapper("i", "!", "!<c-g>u")
 key_mapper("i", "[", "[<C-g>u")
 
 -- jk as Escape key
-key_mapper("i", "kj", "<Esc>")
+key_mapper("i", "jj", "<Esc>")
 key_mapper("i", "jk", "<Esc>")
 
 -- *************************************************************************************
@@ -168,7 +175,6 @@ key_mapper("n", "<leader>fc", ":Telescope git_commits<cr>")
 key_mapper("n", "<leader>fgw", ":Telescope grep_string<cr>")
 key_mapper("n", "<leader>fp", ":Telescope packer<CR>")
 key_mapper("n", "<leader>fr", ":Telescope oldfiles theme=get_ivy<CR>")
-key_mapper("v", "<leader>rr", "<Esc><cmd>lua require('telescope').extensions.refactoring.refactors()<CR>")
 
 -- Toggle Markdown Preview
 key_mapper("n", "<leader>md", ":MarkdownPreviewToggle<CR>")
@@ -181,9 +187,9 @@ key_mapper("n", "<leader>dso", '<cmd>lua require"dap".step_out()<CR>')
 key_mapper("n", "<leader>dtb", '<cmd>lua require"dap".toggle_breakpoint()<CR>')
 key_mapper("n", "<leader>dsbr", '<cmd>lua require"dap".set_breakpoint(vim.fn.input("Breakpoint condition: "))<CR>')
 key_mapper(
-    "n",
-    "<leader>dsbm",
-    '<cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>'
+  "n",
+  "<leader>dsbm",
+  '<cmd>lua require"dap".set_breakpoint(nil, nil, vim.fn.input("Log point message: "))<CR>'
 )
 key_mapper("n", "<leader>dro", '<cmd>lua require"dap".repl.open()<CR>')
 key_mapper("n", "<leader>drl", '<cmd>lua require"dap".repl.run_last()<CR>')

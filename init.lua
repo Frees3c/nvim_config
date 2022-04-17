@@ -29,6 +29,8 @@ require("Plugins.colorizer")
 require("Plugins.gitsigns")
 require("Plugins.truezen")
 require("Plugins.renamer")
+-- require("Plugins.sessions")
+require("Plugins.autosession")
 
 -- LSP
 require("lsp.lua-lsp")
