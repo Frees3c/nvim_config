@@ -20,8 +20,8 @@ end
 vim.g.mapleader = " "
 
 -- Faster scrolling
-key_mapper("n", "<c-e>", "3<c-e>")
-key_mapper("n", "<c-y>", "3<c-y>")
+key_mapper("n", "<c-DOWN>", "3<c-e>")
+key_mapper("n", "<c-UP>", "3<c-y>")
 
 --whenever you're in parentheses, you can simple invoke dp or cp to wipe it's contents (same for brackets, but db or cb).
 key_mapper("o", "p", 'i"')
