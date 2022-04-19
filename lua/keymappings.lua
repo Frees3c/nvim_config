@@ -63,6 +63,7 @@ key_mapper("n", "<leader>h", ":noh<CR>")
 
 -- insert new line above without enerting insert mode.
 key_mapper("n", "<leader>o", "moO<ESC>k ")
+key_mapper("n", "<leader>O", "moo<ESC>k")
 
 -- Better indentaion (tab)
 key_mapper("v", ">", ">gv")
@@ -140,14 +141,12 @@ key_mapper("n", "<space>wa", "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>")
 key_mapper("n", "<space>wr", "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>")
 key_mapper("n", "<space>wl", "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>")
 key_mapper("n", "<space>D", "<cmd>lua vim.lsp.buf.type_definition()<CR>")
--- key_mapper('n', 'rn',         '<cmd>lua vim.lsp.buf.rename()<CR>')
 key_mapper("n", "<space>ca", "<cmd>lua vim.lsp.buf.code_action()<CR>")
 key_mapper("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>")
--- key_mapper("n", "<space>e", "<cmd>lua vim.diagnostic.open_float()<CR>")
+key_mapper("n", "<Leader>E", "<cmd>lua vim.diagnostic.open_float()<CR>")
 key_mapper("n", "[d", "<cmd>lua vim.diagnostic.goto_prev()<CR>")
 key_mapper("n", "]d", "<cmd>lua vim.diagnostic.goto_next()<CR>")
 key_mapper("n", "<space>q", "<cmd>lua vim.diagnostic.setloclist()<CR>")
--- key_mapper("n", "F", "<cmd>lua vim.lsp.buf.formatting()<CR>")
 key_mapper("n", "F", ":Format<CR>")
 
 -- Nvim Tree Toggle
